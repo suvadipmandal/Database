@@ -1,0 +1,370 @@
+old   1: insert into sales values('&pid','&sid','&sname',&unit,sysdate)
+new   1: insert into sales values('p001','s002','kapil',54,sysdate)
+
+1 row created.
+
+SQL> /
+Enter value for pid: s001
+Enter value for sid: sanjay
+Enter value for sname: jj
+Enter value for unit: 0
+old   1: insert into sales values('&pid','&sid','&sname',&unit,sysdate)
+new   1: insert into sales values('s001','sanjay','jj',0,sysdate)
+insert into sales values('s001','sanjay','jj',0,sysdate)
+*
+ERROR at line 1:
+ORA-02291: integrity constraint (SYSTEM.SYS_C004031) violated - parent key not
+found
+
+
+SQL> /
+Enter value for pid: p001
+Enter value for sid: s001
+Enter value for sname: sanjay
+Enter value for unit: 65
+old   1: insert into sales values('&pid','&sid','&sname',&unit,sysdate)
+new   1: insert into sales values('p001','s001','sanjay',65,sysdate)
+
+1 row created.
+
+SQL> /
+Enter value for pid: p003
+Enter value for sid: s002
+Enter value for sname: kapil
+Enter value for unit: 800
+old   1: insert into sales values('&pid','&sid','&sname',&unit,sysdate)
+new   1: insert into sales values('p003','s002','kapil',800,sysdate)
+
+1 row created.
+
+SQL> /
+Enter value for pid: p002
+Enter value for sid: s001
+Enter value for sname: sanjay
+Enter value for unit: 55
+old   1: insert into sales values('&pid','&sid','&sname',&unit,sysdate)
+new   1: insert into sales values('p002','s001','sanjay',55,sysdate)
+
+1 row created.
+
+SQL> /
+Enter value for pid: p002
+Enter value for sid: s002
+Enter value for sname: kapil
+Enter value for unit: 75
+old   1: insert into sales values('&pid','&sid','&sname',&unit,sysdate)
+new   1: insert into sales values('p002','s002','kapil',75,sysdate)
+
+1 row created.
+
+SQL> select * from sales
+  2  ;
+
+PID        SID        SNAME                 UNIT SDATE
+---------- ---------- --------------- ---------- ---------
+p001       s001       sanjay                  15 06-APR-16
+p001       s002       kapil                   54 06-APR-16
+p001       s001       sanjay                  65 06-APR-16
+p003       s002       kapil                  800 06-APR-16
+p002       s001       sanjay                  55 06-APR-16
+p002       s002       kapil                   75 06-APR-16
+
+6 rows selected.
+
+SQL> select pid,sid,sname,unit,to_char(sdate,'dd-mm-yyyy') from sales;
+
+PID        SID        SNAME                 UNIT TO_CHAR(SD
+---------- ---------- --------------- ---------- ----------
+p001       s001       sanjay                  15 06-04-2016
+p001       s002       kapil                   54 06-04-2016
+p001       s001       sanjay                  65 06-04-2016
+p003       s002       kapil                  800 06-04-2016
+p002       s001       sanjay                  55 06-04-2016
+p002       s002       kapil                   75 06-04-2016
+
+6 rows selected.
+
+SQL> select pid,sid,sname,unit,to_char(sdate,'dd-mm-yyyy hh:min:ss') from sales;
+select pid,sid,sname,unit,to_char(sdate,'dd-mm-yyyy hh:min:ss') from sales
+                                        *
+ERROR at line 1:
+ORA-01821: date format not recognized
+
+
+SQL> select pid,sid,sname,unit,to_char(sdate,'hh:min:ss') from sales;
+select pid,sid,sname,unit,to_char(sdate,'hh:min:ss') from sales
+                                        *
+ERROR at line 1:
+ORA-01821: date format not recognized
+
+
+SQL> select pid,sid,sname,unit,to_char(sdate,'hh') from sales;
+
+PID        SID        SNAME                 UNIT TO
+---------- ---------- --------------- ---------- --
+p001       s001       sanjay                  15 08
+p001       s002       kapil                   54 08
+p001       s001       sanjay                  65 08
+p003       s002       kapil                  800 08
+p002       s001       sanjay                  55 08
+p002       s002       kapil                   75 08
+
+6 rows selected.
+
+SQL> select pid,sid,sname,unit,to_char(sdate,'hh:mn') from sales;
+select pid,sid,sname,unit,to_char(sdate,'hh:mn') from sales
+                                        *
+ERROR at line 1:
+ORA-01821: date format not recognized
+
+
+
+
+
+SQL> select pid,sid,sname,unit,to_char(sdate,'ss') from sales;
+
+PID        SID        SNAME                 UNIT TO
+---------- ---------- --------------- ---------- --
+p001       s001       sanjay                  15 53
+p001       s002       kapil                   54 08
+p001       s001       sanjay                  65 45
+p003       s002       kapil                  800 01
+p002       s001       sanjay                  55 15
+p002       s002       kapil                   75 32
+
+6 rows selected.
+
+SQL> select pid,sid,sname,unit,to_char(sdate,'mm') from sales;
+
+PID        SID        SNAME                 UNIT TO
+---------- ---------- --------------- ---------- --
+p001       s001       sanjay                  15 04
+p001       s002       kapil                   54 04
+p001       s001       sanjay                  65 04
+p003       s002       kapil                  800 04
+p002       s001       sanjay                  55 04
+p002       s002       kapil                   75 04
+
+6 rows selected.
+
+SQL> select pid,sid,sname,unit,to_char(sdate,'mi') from sales;
+
+PID        SID        SNAME                 UNIT TO
+---------- ---------- --------------- ---------- --
+p001       s001       sanjay                  15 13
+p001       s002       kapil                   54 14
+p001       s001       sanjay                  65 14
+p003       s002       kapil                  800 15
+p002       s001       sanjay                  55 15
+p002       s002       kapil                   75 15
+
+6 rows selected.
+
+SQL> select pid,sid,sname,unit,to_char(sdate,'dd/mm/yyyy hh:mi:ss') from sales;
+
+PID        SID        SNAME                 UNIT TO_CHAR(SDATE,'DD/M
+---------- ---------- --------------- ---------- -------------------
+p001       s001       sanjay                  15 06/04/2016 08:13:53
+p001       s002       kapil                   54 06/04/2016 08:14:08
+p001       s001       sanjay                  65 06/04/2016 08:14:45
+p003       s002       kapil                  800 06/04/2016 08:15:01
+p002       s001       sanjay                  55 06/04/2016 08:15:15
+p002       s002       kapil                   75 06/04/2016 08:15:32
+
+6 rows selected.
+
+
+
+SQL> select sum(unit) from sales group by pid;
+
+ SUM(UNIT)
+----------
+       134
+       800
+       130
+
+
+
+SQL> select sum(unit) from sales where sid='s001';
+
+ SUM(UNIT)
+----------
+       135
+
+SQL> select product.productname,product.profit*sales.unit,sales.sname
+  2  from product,sales where product.productid=sales.pid;
+
+PRODUCTNAME                    PRODUCT.PROFIT*SALES.UNIT SNAME
+------------------------------ ------------------------- ---------------
+britania thin araroot                                 75 sanjay
+britania thin araroot                                270 kapil
+britania thin araroot                                325 sanjay
+parle crack jack                                    1200 kapil
+cream cracker                                     178.75 sanjay
+cream cracker                                     243.75 kapil
+
+6 rows selected.
+
+SQL> select product.productname,product.profit*sales.unit,sales.sname
+  2  from product,sales where product.productid=sales.pid order by sales.sname;
+
+PRODUCTNAME                    PRODUCT.PROFIT*SALES.UNIT SNAME
+------------------------------ ------------------------- ---------------
+britania thin araroot                                270 kapil
+parle crack jack                                    1200 kapil
+cream cracker                                     243.75 kapil
+cream cracker                                     178.75 sanjay
+britania thin araroot                                 75 sanjay
+britania thin araroot                                325 sanjay
+
+6 rows selected.
+
+SQL> select product.productname,product.profit*sales.unit,sales.sname
+  2  from product,sales where product.productid=sales.pid order by sales.sname desc;
+
+PRODUCTNAME                    PRODUCT.PROFIT*SALES.UNIT SNAME
+------------------------------ ------------------------- ---------------
+britania thin araroot                                 75 sanjay
+britania thin araroot                                325 sanjay
+cream cracker                                     178.75 sanjay
+parle crack jack                                    1200 kapil
+cream cracker                                     243.75 kapil
+britania thin araroot                                270 kapil
+
+6 rows selected.
+
+SQL> select product.productname,product.profit*sales.unit,sales.sname
+  2  from product,sales where product.productid=sales.pid order by product.profit*sales.unit;
+
+PRODUCTNAME                    PRODUCT.PROFIT*SALES.UNIT SNAME
+------------------------------ ------------------------- ---------------
+britania thin araroot                                 75 sanjay
+cream cracker                                     178.75 sanjay
+cream cracker                                     243.75 kapil
+britania thin araroot                                270 kapil
+britania thin araroot                                325 sanjay
+parle crack jack                                    1200 kapil
+
+6 rows selected.
+
+SQL> select product.productname,product.profit*sales.unit,sales.sname
+  2  from product,sales where product.productid=sales.pid order by product.profit*sales.unit desc;
+
+PRODUCTNAME                    PRODUCT.PROFIT*SALES.UNIT SNAME
+------------------------------ ------------------------- ---------------
+parle crack jack                                    1200 kapil
+britania thin araroot                                325 sanjay
+britania thin araroot                                270 kapil
+cream cracker                                     243.75 kapil
+cream cracker                                     178.75 sanjay
+britania thin araroot                                 75 sanjay
+
+6 rows selected.
+
+SQL> select * from product;
+
+PRODUCTID  PRODUCTNAME                        PPRICE     SPRICE     PROFIT
+---------- ------------------------------ ---------- ---------- ----------
+p001       britania thin araroot                  22         27          5
+p002       cream cracker                        26.5      29.75       3.25
+p003       parle crack jack                      7.6        9.1        1.5
+
+SQL> select * from product order by price;
+select * from product order by price
+                               *
+ERROR at line 1:
+ORA-00904: "PRICE": invalid identifier
+
+
+SQL> select * from product order by pprice;
+
+PRODUCTID  PRODUCTNAME                        PPRICE     SPRICE     PROFIT
+---------- ------------------------------ ---------- ---------- ----------
+p003       parle crack jack                      7.6        9.1        1.5
+p001       britania thin araroot                  22         27          5
+p002       cream cracker                        26.5      29.75       3.25
+
+SQL> select * from product order by pprice desc;
+
+PRODUCTID  PRODUCTNAME                        PPRICE     SPRICE     PROFIT
+---------- ------------------------------ ---------- ---------- ----------
+p002       cream cracker                        26.5      29.75       3.25
+p001       britania thin araroot                  22         27          5
+p003       parle crack jack                      7.6        9.1        1.5
+
+SQL> select * from sales;
+
+PID        SID        SNAME                 UNIT SDATE
+---------- ---------- --------------- ---------- ---------
+p001       s001       sanjay                  15 06-APR-16
+p001       s002       kapil                   54 06-APR-16
+p001       s001       sanjay                  65 06-APR-16
+p003       s002       kapil                  800 06-APR-16
+p002       s001       sanjay                  55 06-APR-16
+p002       s002       kapil                   75 06-APR-16
+
+6 rows selected.
+
+SQL> select sum(unit) from sales;
+
+ SUM(UNIT)
+----------
+      1064
+
+SQL> select max(unit) from sales;
+
+ MAX(UNIT)
+----------
+       800
+
+SQL> select min(unit) from sales;
+
+ MIN(UNIT)
+----------
+        15
+
+SQL> select avg(unit) from sales;
+
+ AVG(UNIT)
+----------
+177.333333
+
+
+SQL> select sum(unit) from sales group by sid;
+
+ SUM(UNIT)
+----------
+       929
+       135
+
+SQL> select sid,sum(unit) from sales group by sid;
+
+SID         SUM(UNIT)
+---------- ----------
+s002              929
+s001              135
+
+
+
+SQL> select sname,sum(unit) from sales group by sname;
+
+SNAME            SUM(UNIT)
+--------------- ----------
+sanjay                 135
+kapil                  929
+
+SQL> select sname,sum(unit) from sales group by sname order by sname;
+
+SNAME            SUM(UNIT)
+--------------- ----------
+kapil                  929
+sanjay                 135
+
+SQL> select sname,sum(unit) from sales group by sname order by sname desc;
+
+SNAME            SUM(UNIT)
+--------------- ----------
+sanjay                 135
+kapil                  929
+
+SQL>

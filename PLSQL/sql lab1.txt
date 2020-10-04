@@ -1,0 +1,1093 @@
+1) 	to display all existing table :
+	sql> select * from tab;
+
+=======================================================================================================================================================================
+
+2) 	to clear the screen:
+	sql>clear screen;
+
+=======================================================================================================================================================================
+
+3) 	creating a simple table:
+	SQL> create table chagol
+  	2  (regno char(12),name char(30),age number(3));
+
+	Table created.
+
+=======================================================================================================================================================================
+
+4) 	to display the structure of existing table:
+	SQL> desc chagol;
+ 	Name                                      Null?    Type
+ 	----------------------------------------- -------- ----------------------------
+ 	REGNO                                              CHAR(12)
+ 	NAME                                               CHAR(30)
+ 	AGE                                                NUMBER(3)
+
+=======================================================================================================================================================================
+
+5) 	creating table with primary key as key constraint:
+	SQL> create table chagol1
+  	2  (regno char(12) primary key,name char(30),age number(3));
+
+	Table created.
+
+	SQL> desc chagol1;
+ 	Name                                      Null?    Type
+ 	----------------------------------------- -------- ----------------------------
+ 	REGNO                                     NOT NULL CHAR(12)
+ 	NAME                                               CHAR(30)
+ 	AGE                                                NUMBER(3)
+
+=======================================================================================================================================================================
+
+6)  	creating table with pk as table constraint:
+	SQL> create table chagol2
+  	2  (regno char(12),name char(30),age number(3),primary key(regno));
+
+	Table created.
+
+	SQL> desc chagol2;
+ 	Name                                      Null?    Type
+ 	----------------------------------------- -------- ----------------------------
+ 	REGNO                                     NOT NULL CHAR(12)
+ 	NAME                                               CHAR(30)
+ 	AGE                                                NUMBER(3)
+
+=======================================================================================================================================================================
+
+7) 	creating table with composite primary key:
+	SQL> create table pagol
+  	2  (class char(10),sec char(1),roll number(2),name char(30),age number(3),
+  	3  primary key(roll,class,sec));
+
+	Table created.
+
+	SQL> desc pagol;
+	Name                                      Null?    Type
+ 	----------------------------------------- -------- ----------------------------
+ 	CLASS                                     NOT NULL CHAR(10)
+ 	SEC                                       NOT NULL CHAR(1)
+ 	ROLL                                      NOT NULL NUMBER(2)
+ 	NAME                                               CHAR(30)
+ 	AGE                                                NUMBER(3)
+
+
+=======================================================================================================================================================================
+=======================================================================================================================================================================
+
+1)	SQL> desc chagol;
+	Name                                      Null?    Type
+ 	----------------------------------------- -------- ----------------------------
+ 	REGNO                                              CHAR(12)
+ 	NAME                                               CHAR(30)
+ 	AGE                                                NUMBER(3)
+
+	SQL> insert into chagol
+  	2  values('a001','chagol kumar pagol',-90);
+
+	1 row created.
+
+	SQL> /
+
+	1 row created.
+
+	SQL> /
+
+	1 row created.
+
+	SQL> select * from chagol;
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	
+	SQL> insert into chagol
+	2  values('a0019','chagol kumar pagol');
+	insert into chagol
+            *
+	ERROR at line 1:
+	ORA-00947: not enough values
+
+
+	SQL> insert into chagol(regno,name)
+	2  values('a0019','chagol kumar pagol');
+
+	1 row created.
+
+	SQL> select * from chagol;
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	
+	SQL> insert into chagol(name,age,regno)
+	2  values('patol kumar',12,'b00987');
+	
+	1 row created.
+
+	SQL> select * from chagol;
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	b00987       patol kumar                            12
+
+	SQL> desc chagol;
+	Name                                      Null?    Type
+ 	----------------------------------------- -------- ----------------------------
+ 	REGNO                                              CHAR(12)
+ 	NAME                                               CHAR(30)
+ 	AGE                                                NUMBER(3)
+
+
+=======================================================================================================================================================================
+==========================================================================================================================================================================
+
+	SQL> insert into chagol
+  	2  values('&regno','&name',&age);
+	Enter value for regno: xz654
+	Enter value for name: honuman dandapath
+	Enter value for age: 43
+	old   2: values('&regno','&name',&age)
+	new   2: values('xz654','honuman dandapath',43)
+
+	1 row created.
+
+	SQL> /
+	Enter value for regno: ds432
+	Enter value for name: khjs djksdh jksdj
+	Enter value for age: 87
+	old   2: values('&regno','&name',&age)
+	new   2: values('ds432','khjs djksdh jksdj',87)
+
+	1 row created.
+
+	SQL> select * from chagol;
+	
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	b00987       patol kumar                            12
+	xz654        honuman dandapath                      43
+	ds432        khjs djksdh jksdj                      87
+
+	7 rows selected.
+
+	SQL> insert into chagol(name,age,regno)
+	2  values('&name',&age,'&regno');
+	Enter value for name: bando dey
+	Enter value for age: 21
+	Enter value for regno: df6532
+	old   2: values('&name',&age,'&regno')
+	new   2: values('bando dey',21,'df6532')
+
+	1 row created.
+
+
+=======================================================================================================================================================================
+=======================================================================================================================================================================
+
+	SQL> desc chagol1;
+	Name                                      Null?    Type
+	----------------------------------------- -------- ----------------------------
+	REGNO                                     NOT NULL CHAR(12)
+ 	NAME                                               CHAR(30)
+ 	AGE                                                NUMBER(3)
+
+	SQL> insert into chagol1(name,age)
+  	2  values('&name',&age);
+	Enter value for name: aaaa
+	Enter value for age: 22
+	old   2: values('&name',&age)
+	new   2: values('aaaa',22)
+	insert into chagol1(name,age)
+	*
+	ERROR at line 1:
+	ORA-01400: cannot insert NULL into ("SYSTEM"."CHAGOL1"."REGNO")
+
+
+	SQL> insert into chagol1(regno,name)
+  	2  values('&regno','&name');
+	Enter value for regno: asd54
+	Enter value for name: hgg tyty
+	old   2: values('&regno','&name')
+	new   2: values('asd54','hgg tyty')
+
+	1 row created.
+
+
+=======================================================================================================================================================================
+=======================================================================================================================================================================
+
+	SQL> select * from chagol;
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	b00987       patol kumar                            12
+	xz654        honuman dandapath                      43
+	ds432        khjs djksdh jksdj                      87
+	df6532       bando dey                              21
+
+	8 rows selected.
+
+	SQL> select max(age) from chagol;
+
+  	MAX(AGE)
+	----------
+        87
+
+	SQL> select * from chagol
+  	2  where
+  	3  age=(select max(age) from chagol);
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	ds432        khjs djksdh jksdj                      87
+
+	SQL> select * from chagol where age=87;
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	ds432        khjs djksdh jksdj                      87
+
+	SQL> select min(age) from chagol;
+
+  	MIN(AGE)
+	----------
+       	-90
+
+	SQL> select * from chagol
+  	2  where
+  	3  age=(select min(age) from chagol);
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+
+	
+
+	SQL> select * from chagol
+  	2  where
+  	3  age<(select max(age) from chagol)
+  	4  and
+  	5  age>(select min(age) from chagol);
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	b00987       patol kumar                            12
+	xz654        honuman dandapath                      43
+	df6532       bando dey                              21
+
+	SQL> select name from chagol;
+	
+	NAME
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	patol kumar
+	honuman dandapath
+	khjs djksdh jksdj
+	bando dey
+
+	8 rows selected.
+
+	SQL> select name from chagol where name like '%pagol';
+
+	no rows selected
+
+	SQL> select name from chagol where name like '%pagol%';
+
+	NAME
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	
+	SQL> select name from chagol where name like '%kumar%';
+
+	NAME
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	patol kumar
+
+	SQL> select name from chagol;
+
+	NAME
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	patol kumar
+	honuman dandapath
+	khjs djksdh jksdj
+	bando dey
+	
+	8 rows selected.
+
+	SQL> select name from chagol where name like 'h%';
+
+	NAME
+	------------------------------
+	honuman dandapath
+
+	SQL> select name from chagol where name like '_h%';
+
+	NAME
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	khjs djksdh jksdj
+
+	SQL> select name from chagol where name like '__a%';
+
+	NAME
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	
+
+=======================================================================================================================================================================
+=======================================================================================================================================================================
+
+	SQL> select name from chagol;
+
+	NAME
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	patol kumar
+	honuman dandapath
+	khjs djksdh jksdj
+	bando dey
+
+	8 rows selected.
+
+	
+
+	SQL> select lower(name) from chagol;
+
+	LOWER(NAME)
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	patol kumar
+	honuman dandapath
+	khjs djksdh jksdj
+	bando dey
+
+	8 rows selected.
+
+	SQL> update chagol set name=upper(name) where name='patol kumar';
+
+	1 row updated.
+
+	SQL> select * from chagol;
+	
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	b00987       PATOL KUMAR                            12
+	xz654        honuman dandapath                      43
+	ds432        khjs djksdh jksdj                      87
+	df6532       bando dey                              21
+	
+	8 rows selected.
+
+	SQL> select lower(name) from chagol;
+	
+	LOWER(NAME)
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	patol kumar
+	honuman dandapath
+	khjs djksdh jksdj
+	bando dey
+	
+	8 rows selected.
+
+	SQL> select upper(name) from chagol;
+
+	UPPER(NAME)
+	------------------------------
+	CHAGOL KUMAR PAGOL
+	CHAGOL KUMAR PAGOL
+	CHAGOL KUMAR PAGOL
+	CHAGOL KUMAR PAGOL
+	PATOL KUMAR
+	HONUMAN DANDAPATH
+	KHJS DJKSDH JKSDJ
+	BANDO DEY
+	
+	8 rows selected.
+	
+	SQL> select initcap(name) from chagol;
+
+	INITCAP(NAME)
+	------------------------------
+	Chagol Kumar Pagol
+	Chagol Kumar Pagol
+	Chagol Kumar Pagol
+	Chagol Kumar Pagol
+	Patol Kumar
+	Honuman Dandapath
+	Khjs Djksdh Jksdj
+	Bando Dey
+	
+	8 rows selected.
+
+	SQL> select * from chagol;
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	b00987       PATOL KUMAR                            12
+	xz654        honuman dandapath                      43
+	ds432        khjs djksdh jksdj                      87
+	df6532       bando dey                              21
+
+	8 rows selected.
+
+	SQL> update chagol
+  	2  set name=initcap(name);
+
+	8 rows updated.
+
+	SQL> select * from chagol;
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         Chagol Kumar Pagol                    -90
+	a001         Chagol Kumar Pagol                    -90
+	a001         Chagol Kumar Pagol                    -90
+	a0019        Chagol Kumar Pagol
+	b00987       Patol Kumar                            12
+	xz654        Honuman Dandapath                      43
+	ds432        Khjs Djksdh Jksdj                      87
+	df6532       Bando Dey                              21
+
+	8 rows selected.
+
+	SQL> update chagol set name=upper(name);
+
+	8 rows updated.
+
+	SQL> select * from chagol;
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         CHAGOL KUMAR PAGOL                    -90
+	a001         CHAGOL KUMAR PAGOL                    -90
+	a001         CHAGOL KUMAR PAGOL                    -90
+	a0019        CHAGOL KUMAR PAGOL
+	b00987       PATOL KUMAR                            12
+	xz654        HONUMAN DANDAPATH                      43
+	ds432        KHJS DJKSDH JKSDJ                      87
+	df6532       BANDO DEY                              21
+
+	8 rows selected.
+
+	SQL> update chagol set name=lower(name);
+
+	8 rows updated.
+
+	SQL> select * from chagol;
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	b00987       patol kumar                            12
+	xz654        honuman dandapath                      43
+	ds432        khjs djksdh jksdj                      87
+	df6532       bando dey                              21
+
+	8 rows selected.
+
+
+=======================================================================================================================================================================
+=========================================================================================================================================================================
+
+	SQL> select "   chagol  das      " from dual;
+	select "   chagol  das      " from dual
+       	*
+	ERROR at line 1:
+	ORA-00904: "   chagol  das      ": invalid identifier
+
+
+	SQL> select '   chagol  das      ' from dual;
+
+	'CHAGOLDAS'
+	--------------------
+   	chagol  das
+
+	SQL> select ltrim('   chagol  das      ') from dual;
+
+	LTRIM('CHAGOLDAS'
+	-----------------
+	chagol  das
+
+	SQL> select rtrim('   chagol  das      ') from dual;
+
+	RTRIM('CHAGOLD
+	--------------
+   	chagol  das
+
+	SQL> select ltrim(rtrim('   chagol  das      ')) from dual;
+
+	LTRIM(RTRIM
+	-----------
+	chagol  das
+
+	SQL> select trim('   chagol  das      ') from dual;
+
+	TRIM('CHAGO
+	-----------
+	chagol  das
+
+	SQL> select "pantua" from dual;
+	select "pantua" from dual
+	*
+	ERROR at line 1:
+	ORA-00904: "pantua": invalid identifier
+
+
+	SQL> select 'pantua' from dual;
+
+	'PANTU
+	------
+	pantua
+
+	SQL> select 'pantua' "honu" from dual;
+
+	honu
+	------
+	pantua
+
+	SQL> select name from chagol;
+
+	NAME
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	patol kumar
+	honuman dandapath
+	khjs djksdh jksdj
+	bando dey
+
+	8 rows selected.
+
+	SQL> select name "student's name" from chagol;
+
+	student's name
+	------------------------------
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	chagol kumar pagol
+	patol kumar
+	honuman dandapath
+	khjs djksdh jksdj
+	bando dey
+	
+	8 rows selected.
+
+	SQL>  ttitle "hijibiji college";
+	SQL> select * from chagol;
+
+	Sun Jan 24                                                             page    1
+	                                hijibiji college
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	b00987       patol kumar                            12
+	xz654        honuman dandapath                      43
+	ds432        khjs djksdh jksdj                      87
+	df6532       bando dey                              21
+
+	8 rows selected.
+
+	SQL> btitle "TATA";
+	SQL> select * from chagol;
+
+	Sun Jan 24                                                             page    1
+	                                hijibiji college
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	b00987       patol kumar                            12
+	xz654        honuman dandapath                      43
+	ds432        khjs djksdh jksdj                      87
+		                                      TATA
+
+	Sun Jan 24                                                             page    2
+	                                hijibiji college
+	
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	df6532       bando dey                              21
+
+
+
+
+
+
+		                                      TATA
+
+	8 rows selected.
+
+	SQL>  ttitle "hijibiji college" skip 2;
+	SQL> select * from chagol;
+
+	hijibiji college
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a001         chagol kumar pagol                    -90
+	a0019        chagol kumar pagol
+	b00987       patol kumar                            12
+	xz654        honuman dandapath                      43
+	ds432        khjs djksdh jksdj                      87
+	df6532       bando dey                              21
+		                                      TATA
+
+	8 rows selected.
+
+=======================================================================================================================================================================
+=======================================================================================================================================================================
+
+	SQL> rollback;
+
+	Rollback complete.
+
+	SQL> select * from chagol;
+
+	no rows selected
+
+	SQL> select * from chagol1;
+
+	no rows selected
+
+	SQL> insert into chagol
+  	2  values(upper('&regno'),initcap('&name'),&age);
+	Enter value for regno: a001
+	Enter value for name: ram kumar das
+	Enter value for age: 21
+	old   2: values(upper('&regno'),initcap('&name'),&age)
+	new   2: values(upper('a001'),initcap('ram kumar das'),21)
+
+	1 row created.
+
+	SQL> /
+	Enter value for regno: a002
+	Enter value for name: honu dey
+	Enter value for age: 12
+	old   2: values(upper('&regno'),initcap('&name'),&age)
+	new   2: values(upper('a002'),initcap('honu dey'),12)
+	
+	1 row created.
+
+	SQL> /
+	Enter value for regno: a003
+	Enter value for name: patol ghosh
+	Enter value for age: 31
+	old   2: values(upper('&regno'),initcap('&name'),&age)
+	new   2: values(upper('a003'),initcap('patol ghosh'),31)
+
+	1 row created.
+
+	SQL> /
+	Enter value for regno: a004
+	Enter value for name: chichinga das
+	Enter value for age: 23
+	old   2: values(upper('&regno'),initcap('&name'),&age)
+	new   2: values(upper('a004'),initcap('chichinga das'),23)
+
+	1 row created.
+
+	SQL> /
+	Enter value for regno: a005
+	Enter value for name: boka dandapath
+	Enter value for age: 22
+	old   2: values(upper('&regno'),initcap('&name'),&age)
+	new   2: values(upper('a005'),initcap('boka dandapath'),22)
+
+	1 row created.
+
+	SQL> select * from chagol;
+
+	hijibiji college
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+	A002         Honu Dey                               12
+	A003         Patol Ghosh                            31
+	A004         Chichinga Das                          23
+	A005         Boka Dandapath                         22
+
+
+
+		                                      TATA
+	
+	SQL> commit;
+
+	Commit complete.
+
+	SQL> select * from chagol;
+
+	hijibiji college
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+	A002         Honu Dey                               12
+	A003         Patol Ghosh                            31
+	A004         Chichinga Das                          23
+	A005         Boka Dandapath                         22
+	
+
+
+		                                      TATA
+
+	SQL> rollback;
+
+	Rollback complete.
+
+	SQL> select * from chagol;
+
+	hijibiji college
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+	A002         Honu Dey                               12
+	A003         Patol Ghosh                            31
+	A004         Chichinga Das                          23
+	A005         Boka Dandapath                         22
+	
+
+
+		                                      TATA
+
+	SQL>
+=======================================================================================================================================================================
+=======================================================================================================================================================================
+
+	SQL> select * from chagol;
+	
+	hijibiji college
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+	A002         Honu Dey                               12
+	A003         Patol Ghosh                            31
+	A004         Chichinga Das                          23
+	A005         Boka Dandapath                         22
+	
+
+
+		                                      TATA
+
+	SQL> insert into chagol(regno) values('asd432');
+
+	1 row created.
+
+	SQL> select * from chagol;
+
+	hijibiji college
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+	A002         Honu Dey                               12
+	A003         Patol Ghosh                            31
+	A004         Chichinga Das                          23
+	A005         Boka Dandapath                         22
+	asd432
+
+
+		                                      TATA
+
+	6 rows selected.
+
+	SQL> rollback;
+
+	Rollback complete.
+
+	SQL> select * from chagol;
+
+	hijibiji college
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+	A002         Honu Dey                               12
+	A003         Patol Ghosh                            31
+	A004         Chichinga Das                          23
+	A005         Boka Dandapath                         22
+	
+
+
+		                                      TATA
+
+	SQL> ttitle "";
+	SQL> btitle "";
+	SQL> select * from chagol;
+
+	Sun Jan 24                                                             page    1
+	                              select * from chagol
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+	A002         Honu Dey                               12
+	A003         Patol Ghosh                            31
+	A004         Chichinga Das                          23
+	A005         Boka Dandapath                         22
+	
+
+	                              select * from chagol
+
+=======================================================================================================================================================================
+=======================================================================================================================================================================
+
+	SQL> ed d:\chagol.sql
+
+	SQL> @d:\chagol.sql
+  	4  /
+
+	PL/SQL procedure successfully completed.
+	
+	SQL> set serveroutput on;
+	SQL> @d:\chagol.sql
+  	4  /
+	hatavaga Indian...
+
+	PL/SQL procedure successfully completed.
+
+	SQL> select * from chagol;
+
+	Sun Jan 24                                                             page    1
+	                              select * from chagol
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+	A002         Honu Dey                               12
+	A003         Patol Ghosh                            31
+	A004         Chichinga Das                          23
+	A005         Boka Dandapath                         22
+
+
+	                              select * from chagol
+
+	SQL> select * from chagol where regno='a001';
+
+	no rows selected
+
+	SQL> select * from chagol where regno='A001';
+
+	Sun Jan 24                                                             page    1
+	                    select * from chagol where regno='A001'
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+
+
+
+
+
+
+	                    select * from chagol where regno='A001'
+
+	SQL> select * from chagol where regno=upper('a001');
+
+	Sun Jan 24                                                             page    1
+	                 select * from chagol where regno=upper('a001')
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+
+
+
+
+
+
+	                 select * from chagol where regno=upper('a001')
+
+	SQL> select * from chagol where regno='&regno';
+	Enter value for regno: A003
+	old   1: select * from chagol where regno='&regno'
+	new   1: select * from chagol where regno='A003'
+
+	Sun Jan 24                                                             page    1
+	                    select * from chagol where regno='A003'
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A003         Patol Ghosh                            31
+
+
+
+
+
+
+	                    select * from chagol where regno='A003'
+
+	SQL> select * from chagol where regno='&regno';
+	Enter value for regno: a001
+	old   1: select * from chagol where regno='&regno'
+	new   1: select * from chagol where regno='a001'
+
+	no rows selected
+
+	SQL> select * from chagol where regno=upper('&regno');
+	Enter value for regno: a001
+	old   1: select * from chagol where regno=upper('&regno')
+	new   1: select * from chagol where regno=upper('a001')
+
+	Sun Jan 24                                                             page    1
+	                 select * from chagol where regno=upper('a001')
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+
+
+
+
+
+
+	                 select * from chagol where regno=upper('a001')
+
+	SQL> select * from chagol where regno=upper('&regno');
+	Enter value for regno: A001
+	old   1: select * from chagol where regno=upper('&regno')
+	new   1: select * from chagol where regno=upper('A001')
+
+	Sun Jan 24                                                             page    1
+	                 select * from chagol where regno=upper('A001')
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+
+
+
+
+
+
+	                 select * from chagol where regno=upper('A001')
+
+	SQL> select * from chagol where upper(regno)=upper('&regno');
+	Enter value for regno: a001
+	old   1: select * from chagol where upper(regno)=upper('&regno')
+	new   1: select * from chagol where upper(regno)=upper('a001')
+
+	Sun Jan 24                                                             page    1
+	             select * from chagol where upper(regno)=upper('a001')
+
+	REGNO        NAME                                  AGE
+	------------ ------------------------------ ----------
+	A001         Ram Kumar Das                          21
+
+
+
+
+
+
+	             select * from chagol where upper(regno)=upper('a001')
+
+	SQL> select substr('chagol',2,3) from dual;
+
+	Sun Jan 24                                                             page    1
+	                     select substr('chagol',2,3) from dual
+
+	SUB
+	---
+	hag
+
+
+
+
+
+
+                     select substr('chagol',2,3) from dual
+
+SQL> select substr('chagol',4) from dual;
+
+Sun Jan 24                                                             page    1
+                      select substr('chagol',4) from dual
+
+SUB
+---
+gol
+
+
+
+
+
+
+                      select substr('chagol',4) from dual
+
+===================================== END OF LAB SESSION - I ====================================
+=================================================================================================

@@ -1,0 +1,214 @@
+
+SQL> create table student
+  2  (regno char(12),name char(30),sub1 number(3), sub2 number(3),sub3 number(3),
+  3  total number(3),avgr number(6,2),grade char(10), primary key(regno));
+
+Table created.
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL CHAR(12)
+ NAME                                               CHAR(30)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRADE                                              CHAR(10)
+
+SQL> insert into student
+  2  values('&regno','&name',&sub1,&sub2,&sub3);
+Enter value for regno: a001
+Enter value for name: patol kumar
+Enter value for sub1: 44
+Enter value for sub2: 55
+Enter value for sub3: 66
+old   2: values('&regno','&name',&sub1,&sub2,&sub3)
+new   2: values('a001','patol kumar',44,55,66)
+insert into student
+            *
+ERROR at line 1:
+ORA-00947: not enough values
+
+
+SQL> insert into student(regno,name,sub1,sub2,sub3)
+  2  values('&regno','&name',&sub1,&sub2,&sub3);
+Enter value for regno: a001
+Enter value for name: patol
+Enter value for sub1: 44
+Enter value for sub2: 55
+Enter value for sub3: 66
+old   2: values('&regno','&name',&sub1,&sub2,&sub3)
+new   2: values('a001','patol',44,55,66)
+
+1 row created.
+
+SQL> create view entry as select regno,name,sub1,sub2,sub3 from student;
+
+View created.
+
+SQL> select * from student;
+
+REGNO        NAME                                 SUB1       SUB2       SUB3
+------------ ------------------------------ ---------- ---------- ----------
+     TOTAL       AVGR GRADE
+---------- ---------- ----------
+a001         patol                                  44         55         66
+
+
+
+SQL> select * from entry;
+
+REGNO        NAME                                 SUB1       SUB2       SUB3
+------------ ------------------------------ ---------- ---------- ----------
+a001         patol                                  44         55         66
+
+SQL> create view tabu as select regno,name from student;
+
+View created.
+
+SQL> create view result as select regno,total,avgr,grade from student;
+
+View created.
+
+SQL> select * from student;
+
+REGNO        NAME                                 SUB1       SUB2       SUB3
+------------ ------------------------------ ---------- ---------- ----------
+     TOTAL       AVGR GRADE
+---------- ---------- ----------
+a001         patol                                  44         55         66
+
+
+
+SQL> select * from entry;
+
+REGNO        NAME                                 SUB1       SUB2       SUB3
+------------ ------------------------------ ---------- ---------- ----------
+a001         patol                                  44         55         66
+
+SQL> select * from tabu;
+
+REGNO        NAME
+------------ ------------------------------
+a001         patol
+
+SQL> select * from result;
+
+REGNO             TOTAL       AVGR GRADE
+------------ ---------- ---------- ----------
+a001
+
+SQL> insert into entry values('&regno','&name',&sub1,&sub2,&sub3);
+Enter value for regno: a002
+Enter value for name: chagol kumar pagol
+Enter value for sub1: 65
+Enter value for sub2: 78
+Enter value for sub3: 98
+old   1: insert into entry values('&regno','&name',&sub1,&sub2,&sub3)
+new   1: insert into entry values('a002','chagol kumar pagol',65,78,98)
+
+1 row created.
+
+SQL> select * from student;
+
+REGNO        NAME                                 SUB1       SUB2       SUB3
+------------ ------------------------------ ---------- ---------- ----------
+     TOTAL       AVGR GRADE
+---------- ---------- ----------
+a001         patol                                  44         55         66
+
+
+a002         chagol kumar pagol                     65         78         98
+
+
+
+SQL> select * from entry;
+
+REGNO        NAME                                 SUB1       SUB2       SUB3
+------------ ------------------------------ ---------- ---------- ----------
+a001         patol                                  44         55         66
+a002         chagol kumar pagol                     65         78         98
+
+SQL> select * from result;
+
+REGNO             TOTAL       AVGR GRADE
+------------ ---------- ---------- ----------
+a001
+a002
+
+SQL> update result,entry set result.total=entry.sub1+entry.sub2+entry.sub3;
+update result,entry set result.total=entry.sub1+entry.sub2+entry.sub3
+             *
+ERROR at line 1:
+ORA-00971: missing SET keyword
+
+
+SQL> update result set result.total=entry.sub1+entry.sub2+entry.sub3;
+update result set result.total=entry.sub1+entry.sub2+entry.sub3
+                                                     *
+ERROR at line 1:
+ORA-00904: "ENTRY"."SUB3": invalid identifier
+
+
+SQL> update result set total=sub1+sub2+sub3;
+update result set total=sub1+sub2+sub3
+                                  *
+ERROR at line 1:
+ORA-00904: "SUB3": invalid identifier
+
+
+SQL> update student set total=sub1+sub2+sub3;
+
+2 rows updated.
+
+SQL> update student set avgr=total/3;
+
+2 rows updated.
+
+SQL> select * from result;
+
+REGNO             TOTAL       AVGR GRADE
+------------ ---------- ---------- ----------
+a001                165         55
+a002                241      80.33
+
+SQL> create view chagol as select entry.regno,result.avgr,result.total from entry,result;
+
+View created.
+
+SQL> select * from chagol;
+
+REGNO              AVGR      TOTAL
+------------ ---------- ----------
+a001                 55        165
+a002                 55        165
+a001              80.33        241
+a002              80.33        241
+
+SQL> create view chagols as select entry.regno,result.avgr,result.total from entry,result
+  2  where entry.regno=result.regno;
+
+View created.
+
+SQL> select * from chagols;
+
+REGNO              AVGR      TOTAL
+------------ ---------- ----------
+a001                 55        165
+a002              80.33        241
+
+SQL>
+SQL> drop view chagol;
+
+View dropped.
+
+SQL> select * from chagol;
+select * from chagol
+              *
+ERROR at line 1:
+ORA-00942: table or view does not exist
+
+
+SQL>

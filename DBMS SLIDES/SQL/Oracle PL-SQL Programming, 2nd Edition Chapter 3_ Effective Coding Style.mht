@@ -1,0 +1,2122 @@
+From: <Saved by Windows Internet Explorer 7>
+Subject: Oracle PL/SQL Programming, 2nd Edition: Chapter 3. Effective Coding Style
+Date: Thu, 12 Feb 2009 14:58:01 +0530
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0000_01C98D22.4CE377B0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.00.2900.3350
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0000_01C98D22.4CE377B0
+Content-Type: text/html;
+	charset="Windows-1252"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://oreilly.com/catalog/oraclep2/chapter/ch03.html
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><TITLE>Oracle PL/SQL Programming, 2nd Edition: Chapter 3. =
+Effective Coding Style</TITLE>
+<META http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dwindows-1252">
+<META content=3D"MSHTML 6.00.5730.11" name=3DGENERATOR></HEAD>
+<BODY text=3D#000000 vLink=3D#0000cc link=3D#990000 bgColor=3D#ffffff>
+<TABLE cellSpacing=3D0 cellPadding=3D0 width=3D"90%" border=3D0>
+  <TBODY>
+  <TR>
+    <TD colSpan=3D2><IMG height=3D37 alt=3D"Search the Catalog" isMap=20
+      src=3D"http://oreilly.com/graphics_new/catalog_header_buttons.gif" =
+width=3D515=20
+      align=3Dbottom useMap=3D#catalog_header_buttons border=3D0> <MAP=20
+      name=3Dcatalog_header_buttons><AREA shape=3DRECT =
+coords=3D407,17,512,32=20
+        href=3D"http://oreilly.com/catalog/search.html"><AREA =
+shape=3DRECT=20
+        coords=3D431,3,512,18=20
+    href=3D"http://oreilly.com/catalog/prdindex.html"></MAP></TD></TR>
+  <TR>
+    <TD vAlign=3Dtop width=3D"25%"><A=20
+      href=3D"http://oreilly.com/catalog/oraclep2/"><IMG=20
+      alt=3D"Oracle PL/SQL Programming, 2nd Edition" hspace=3D10=20
+      src=3D"http://oreilly.com/catalog/covers/oraclep2.s.gif" =
+align=3Dleft=20
+      vspace=3D10 border=3D0 valign=3D"top"> </A></TD>
+    <TD vAlign=3Dtop height=3D105><BR>
+      <H2>Oracle PL/SQL Programming, 2nd Edition</H2><FONT size=3D-1>By =
+Steven=20
+      Feuerstein with Bill Pribyl<BR>2nd Edition September=20
+      1997<BR>1-56592-335-9, Order Number: 3359<BR>1028 pages, $46.95, =
+Includes=20
+      diskette </FONT></TD></TR></TBODY></TABLE>
+<HR noShade SIZE=3D1>
+<!--sample chapter begins -->
+<BLOCKQUOTE>
+  <H2 class=3DChapterTitle>Chapter 3. <BR><A name=3D17354></A>Effective =
+Coding=20
+  Style</H2>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD><B class=3D|ChapterContentsStart>In this chapter:</B> <BR><A=20
+        class=3DXRef=20
+        =
+href=3D"http://oreilly.com/catalog/oraclep2/chapter/ch03.html#28739">Fund=
+amentals=20
+        of Effective Layout</A> <BR><A class=3DXRef=20
+        =
+href=3D"http://oreilly.com/catalog/oraclep2/chapter/ch03.html#64385">Form=
+atting=20
+        SQL Statements</A> <BR><A class=3DXRef=20
+        =
+href=3D"http://oreilly.com/catalog/oraclep2/chapter/ch03.html#61382">Form=
+atting=20
+        Control Structures</A> <BR><A class=3DXRef=20
+        =
+href=3D"http://oreilly.com/catalog/oraclep2/chapter/ch03.html#65283">Form=
+atting=20
+        PL/SQL Blocks</A> <BR><A class=3DXRef=20
+        =
+href=3D"http://oreilly.com/catalog/oraclep2/chapter/ch03.html#37208">Form=
+atting=20
+        Packages</A> <BR><A class=3DXRef=20
+        =
+href=3D"http://oreilly.com/catalog/oraclep2/chapter/ch03.html#94685">Usin=
+g=20
+        Comments Effectively</A> <BR><A class=3DXRef=20
+        =
+href=3D"http://oreilly.com/catalog/oraclep2/chapter/ch03.html#60935">Docu=
+menting=20
+        the Entire Package</A> <BR></TD></TR></TBODY></TABLE>
+  <P class=3DBodyStart>You can learn everything about a programming =
+language--its=20
+  syntax, high-performance tips, and advanced features--and still write =
+programs=20
+  that are virtually unreadable, hard to maintain, and devilishly =
+difficult to=20
+  debug--even by you, the author. You can be very smart and very clever, =
+and yet=20
+  develop applications that obscure your talent and accomplishments.</P>
+  <P class=3DBody>This chapter addresses the "look-and-feel" of your =
+code--the=20
+  aesthetic aspect of programming. I am sure that you have all =
+experienced the=20
+  pleasure of reading well-structured and well-formatted code. You have =
+also=20
+  probably experienced a pang of jealousy at that programmer's style and =
+effort,=20
+  wondering where she or he found the time to do it right. Developers =
+always=20
+  experience a feeling of intense pride and satisfaction from carefully =
+and=20
+  artfully designing the visual layout of their code. Yet few of us take =
+the=20
+  time to develop a style and use it consistently in our work.</P>
+  <P class=3DBody>Of course, the impact of a coding style goes well =
+beyond the=20
+  personal satisfaction of any individual. A consistent, predictable =
+approach to=20
+  building programs makes it easier to debug and maintain that code. If =
+everyone=20
+  takes her own approach to structuring, documenting, and naming her =
+code, every=20
+  program becomes its own little pool of quicksand. It is virtually =
+impossible=20
+  for another person to put in a foot and test the water (find the =
+source of a=20
+  problem, analyze dependencies, etc.) without being pulled under.</P>
+  <P class=3DBodyKeep>I discuss the elements of an effective coding =
+style in the=20
+  PL/SQL language at this juncture, before we get to any code, for two=20
+  reasons:</P>
+  <UL>
+    <LI class=3DListBullet>To drive home the point that if you are going =
+to adopt=20
+    a coding style which will improve the readability and =
+maintainability of=20
+    your application, you need to do it at the beginning of your =
+project.=20
+    Programming style involves an attention to detail that can be built =
+only=20
+    during the construction process. You are not going to go back into =
+existing=20
+    code and modify the indentation, case, and documentation format =
+after the=20
+    project is done.=20
+    <P></P>
+    <LI class=3DListBullet>To provide an explanation for the format and =
+style=20
+    which I employ throughout the book. While I can't promise that every =
+line of=20
+    code in the book will follow all of the guidelines in this chapter, =
+I hope=20
+    that you will perceive a consistent style that is easy on the eye =
+and=20
+    helpful in aiding comprehension.=20
+    <P></P></LI></UL>
+  <P class=3DBody>Views on effective coding style are often religious in =
+nature=20
+  (similar to programmers' ideas on the use of GOTO)--that is, based =
+largely on=20
+  faith instead of rationality. I don't expect you to agree with =
+everything in=20
+  this chapter (actually, in a number of places I suggest several =
+alternatives).=20
+  Such unanimity is unrealistic and unnecessary. Rather, I hope that =
+this=20
+  chapter gets you thinking about the style in your own programming.</P>
+  <H2 class=3DHeadA><A name=3D28739></A>Fundamentals of Effective =
+Layout</H2>
+  <P class=3DBodyKeep>There is really just one fundamental objective of =
+code=20
+  layout:</P>
+  <BLOCKQUOTE class=3DListSimple><EM class=3DEmphasis>Reveal and =
+reinforce the=20
+    logical structure of your program</EM>.</BLOCKQUOTE>
+  <P class=3DBody>You could come up with ways of writing your code that =
+are very=20
+  pleasing to the eye, but doing so is less important than choosing a =
+format=20
+  that shows the structure and intent of the program.</P>
+  <P class=3DBody>It is easy to address the topic of effective code =
+layout for=20
+  PL/SQL because it is such a well structured language. It benefits =
+greatly from=20
+  Ada's block structure approach. Each control construct, such as IF and =
+LOOP,=20
+  has its own terminator keyword, such as END IF and END LOOP. Each =
+logical=20
+  block of code has an explicit beginning statement and an associated =
+ending=20
+  statement. This consistent and natural block style lends itself easily =
+and=20
+  naturally to standards for indentation and whitespace, which further =
+expose=20
+  the structure of the code.</P>
+  <H3 class=3DHeadB>Revealing Logical Structure with Indentation</H3>
+  <P class=3DBody>Indentation is one of the most common and effective =
+techniques=20
+  used to display a program's logic via format. As illustrated in the =
+following=20
+  examples, programs that are indented are easier to read than those =
+that are=20
+  not indented, although programs that use excessive indentation are not =
+much=20
+  more readable than unindented programs. Here is an unindented IF=20
+statement:</P><PRE><CODE class=3DCode>IF to_number(the_value) &gt; =
+22</CODE>
+<CODE class=3DCode>THEN</CODE>
+<CODE class=3DCode>IF max_totals =3D 0</CODE>
+<CODE class=3DCode>THEN</CODE>
+<CODE class=3DCode>calc_totals;</CODE>
+<CODE class=3DCode>ELSE</CODE>
+<CODE class=3DCode>WHILE more_data</CODE>
+<CODE class=3DCode>LOOP</CODE>
+<CODE class=3DCode>analyze_results;</CODE>
+<CODE class=3DCode>END LOOP;</CODE>
+<CODE class=3DCode>END IF;</CODE>
+<CODE class=3DCode>END IF;</CODE>
+</PRE>
+  <P class=3DBody>The lack of indentation in this example makes it very =
+difficult=20
+  to pick out the statements that go with each clause in the IF =
+statement. Some=20
+  developers, unfortunately, go to the opposite extreme and use six or =
+more=20
+  spaces for indentation. (This usually occurs by relying on the tab =
+key, which=20
+  offers "logical" indentation--a tab can be equivalent to three spaces =
+in one=20
+  editor and eight in another. I suggest avoiding the use of tabs=20
+  altogether.)</P>
+  <P class=3DBody>I have found that a three-space indentation not only =
+adequately=20
+  reveals the logical structure of the code but also keeps the =
+statements close=20
+  enough together to read comfortably. And, with deeply nested =
+structures, you=20
+  won't run off the right margin as quickly! Here is the three-space =
+indented=20
+  version of the previous nested IF statement:</P><PRE><CODE =
+class=3DCodeIndent>IF to_number(the_value) &gt; 22  </CODE>
+<CODE class=3DCodeIndent>THEN </CODE>
+<CODE class=3DCodeIndent>   IF max_totals =3D 0</CODE>
+<CODE class=3DCodeIndent>   THEN</CODE>
+<CODE class=3DCodeIndent>      calc_totals;</CODE>
+<CODE class=3DCodeIndent>   ELSE</CODE>
+<CODE class=3DCodeIndent>      WHILE more_data</CODE>
+<CODE class=3DCodeIndent>      LOOP</CODE>
+<CODE class=3DCodeIndent>         analyze_results;</CODE>
+<CODE class=3DCodeIndent>      END LOOP;</CODE>
+<CODE class=3DCodeIndent>   END IF;</CODE>
+<CODE class=3DCodeIndent>END IF;</CODE>
+</PRE>
+  <P class=3DBody>The rest of this chapter presents specific techniques =
+that I=20
+  have found to be essential in writing attractive, readable code that =
+reveals=20
+  the logic of my programs.</P>
+  <H3 class=3DHeadB>Using Case to Aid Readability</H3>
+  <P class=3DBody>PL/SQL code is made up of many different components: =
+variables,=20
+  form items, report fields, procedures, functions, loops, declarations, =
+control=20
+  elements, etc. But they break down roughly into two types of text: =
+reserved=20
+  words and application-specific names or identifiers. </P>
+  <P class=3DBody>Reserved words are those names of language elements =
+that are=20
+  reserved by PL/SQL and have a special meaning for the compiler. Some =
+examples=20
+  of reserved words in PL/SQL are:</P><PRE><CODE =
+class=3DCodeIndent>WHILE</CODE>
+<CODE class=3DCodeIndent>IF</CODE>
+<CODE class=3DCodeIndent>BEGIN</CODE>
+<CODE class=3DCodeIndent>TO_CHAR</CODE>
+</PRE>
+  <P class=3DBody>Application-specific identifiers are the names that =
+you, the=20
+  programmer, give to data and program structures that are specific to =
+your=20
+  application and that vary from system to system. </P>
+  <P class=3DBody>The compiler treats these two kinds of text very =
+differently.=20
+  You can improve the readability of your code greatly by reflecting =
+this=20
+  difference in the way the text is displayed. Many developers make no=20
+  distinction between reserved words and application-specific =
+identifiers.=20
+  Consider the following lines of code:</P><PRE><CODE =
+class=3DCodeIndent>if to_number(the_value)&gt;22 and num1 between lval =
+and hval </CODE>
+<CODE class=3DCodeIndent>then </CODE>
+<CODE class=3DCodeIndent>   newval :=3D 100; </CODE>
+<CODE class=3DCodeIndent>elsif to_number(the_value) &lt; 1 </CODE>
+<CODE class=3DCodeIndent>then </CODE>
+<CODE class=3DCodeIndent>   calc_tots(to_date('12-jan-95')); </CODE>
+<CODE class=3DCodeIndent>else </CODE>
+<CODE class=3DCodeIndent>   clear_vals; </CODE>
+<CODE class=3DCodeIndent>end if;</CODE>
+</PRE>
+  <P class=3DBody>While the use of indentation makes it easier to follow =
+the=20
+  logical flow of the IF statement, all the words in the statements tend =
+to=20
+  blend together. It is difficult to separate the reserved words and the =
+
+  application identifiers in this code. Changing entirely to uppercase =
+also will=20
+  not improve matters. Indiscriminate, albeit consistent, use of upper- =
+or=20
+  lowercase for your code reduces its readability. The distinction =
+between=20
+  reserved words and application-specific identifiers is ignored in the=20
+  formatting. This translates into a loss of information and =
+comprehension for a=20
+  developer. </P>
+  <H3 class=3DHeadB>The UPPER-lower Style</H3>
+  <P class=3DBody>You can easily solve this problem by adopting a =
+guideline for=20
+  using a mix of upper- and lowercase to your code. I have recoded my =
+previous=20
+  example below, this time using the UPPER-lower style: all reserved =
+words are=20
+  written in UPPERCASE and all application names are kept in =
+lowercase:</P><PRE><CODE class=3DCodeIndent>IF to_number(the_value) &gt; =
+22 AND </CODE>
+<CODE class=3DCodeIndent>   num1 BETWEEN lval AND hval </CODE>
+<CODE class=3DCodeIndent>THEN </CODE>
+<CODE class=3DCodeIndent>   newval :=3D 100;</CODE>
+<CODE class=3DCodeIndent>ELSIF TO_NUMBER (the_value) &lt; 1</CODE>
+<CODE class=3DCodeIndent>THEN </CODE>
+<CODE class=3DCodeIndent>   calc_tots (TO_DATE ('12-jan-95'));</CODE>
+<CODE class=3DCodeIndent>ELSE </CODE>
+<CODE class=3DCodeIndent>   clear_vals;</CODE>
+<CODE class=3DCodeIndent>END IF;</CODE>
+</PRE>
+  <P class=3DBody>Using a mixture of upper- and lowercase words =
+increases the=20
+  readability of the code by giving a sense of dimension to the code. =
+The eye=20
+  can more easily cruise over the text and pick the different =
+syntactical=20
+  elements of each statement. The uppercase words act as signposts =
+directing the=20
+  activity in the code. You can focus quickly on the lowercase words for =
+the=20
+  application-specific content. Consistent use of this method makes the =
+program=20
+  listings more attractive and accessible at a glance. </P>
+  <H3 class=3DHeadB>Formatting Single Statements</H3>
+  <P class=3DBody>Most of your code consists of individual statements, =
+such as=20
+  assignments, calls to modules, and declarations. A consistent approach =
+to=20
+  formatting and grouping such statements will improve the readability =
+of your=20
+  program as a whole. This section suggests some guidelines.</P>
+  <H4 class=3DHeadC>Use at most one statement per line</H4>
+  <P class=3DBody>As we discussed in Chapter 2, <EM =
+class=3DChapterTitle>PL/SQL=20
+  Language Fundamentals</EM>, PL/SQL uses the semicolon (<KBD=20
+  class=3DCommand>;</KBD>) as the logical terminator for a statement. As =
+a result=20
+  you can have more than one statement on a line and you can continue a =
+single=20
+  executable statement over more than one line. You will sometimes be =
+tempted to=20
+  place several statements on a single line, particularly if they are =
+very=20
+  simple. Consider the following line:</P><PRE><CODE =
+class=3DCodeIndent>new_id :=3D 15; calc_total (new_id); max_dollars :=3D =
+105 * sales_adj; </CODE>
+</PRE>
+  <P class=3DBodyKeep>It is very difficult to pick out the individual =
+statements=20
+  in this line, in addition to the fact that a procedure is called in =
+the middle=20
+  of the line. By placing each statement on its own line you mirror the=20
+  complexity of a program--the simple lines look simple and the complex=20
+  statements look complex--and reinforce the top-to-bottom logic of the =
+program:=20
+  </P><PRE><CODE class=3DCodeIndent>new_id :=3D 15; </CODE>
+<CODE class=3DCodeIndent>calc_total (new_id); </CODE>
+<CODE class=3DCodeIndent>max_dollars :=3D 105 * sales_adj; </CODE>
+</PRE>
+  <P class=3DBody>You can scan the left margin (which will move left and =
+right=20
+  depending on the logic and corresponding indentation) and know that =
+you are=20
+  reviewing all the lines of code. </P>
+  <H4 class=3DHeadC>Use whitespace inside a statement</H4>
+  <P class=3DBodyKeep>You can use all the indentation and blank lines =
+you want to=20
+  reveal the logic of a program and still end up with some very dense =
+and=20
+  unreadable code. It is also important to employ whitespace within a =
+single=20
+  line to make that one statement more comprehensible. Here are two =
+general=20
+  rules I employ in my code: </P>
+  <UL>
+    <LI class=3DListBullet>Always include a space between every =
+identifier and=20
+    separator in a statement. Instead of this:=20
+    <P><CODE class=3DCodeIndent>WHILE(total_sales&lt;maximum_sales AND=20
+    company_type=3D'NEW')LOOP</CODE>=20
+    <P class=3DListBullet->write this:</P><CODE class=3DCodeIndent>WHILE =
+
+    (total_sales &lt; maximum_sales AND company_type =3D 'NEW') =
+LOOP</CODE>=20
+    <LI class=3DListBullet>Use spaces to make module calls and their =
+parameter=20
+    lists more understandable. Instead of this:=20
+    <P><CODE=20
+    =
+class=3DCodeIndent>calc_totals(company_id,LAST_DAY(end_of_year_date),tota=
+l_type);</CODE>=20
+
+    <P class=3DListBullet->write this:</P><CODE =
+class=3DCodeIndent>calc_totals=20
+    (company_id, LAST_DAY (end_of_year_date), total_type);</CODE> =
+</LI></UL>
+  <H3 class=3DHeadB>Formatting Your Declarations</H3>
+  <P class=3DBody>The declaration section declares the local variables =
+and other=20
+  structures to be in your PL/SQL block. This section comes right at the =
+top of=20
+  the block, so it sets the first impression for the rest of the =
+program. If the=20
+  declaration section has no apparent order and is poorly formatted, it =
+is=20
+  unlikely that anything else in that program will be easily understood. =
+</P>
+  <P class=3DBody>The declaration section in PL/SQL can contain many =
+different=20
+  kinds of declarations: simple, scalar variables; complex data =
+structures like=20
+  records and tables; exceptions; even entire subprograms which exist =
+only in=20
+  that program.</P>
+  <P class=3DBody>The following sections give some guidelines for =
+creating your=20
+  declaration statements.</P>
+  <H4 class=3DHeadC>Place one declaration on each line</H4>
+  <P class=3DBody>You will be particularly tempted to "double up" =
+declarations on=20
+  a single line because, in general, declarations are very short in =
+length.=20
+  Resist that temptation! Which of the following sets of declarations =
+would you=20
+  prefer to try to understand at a glance?</P><PRE><CODE =
+class=3DCodeIndent>DECLARE</CODE>
+<CODE class=3DCodeIndent>   comp_type VARCHAR2(3); right_now DATE :=3D =
+SYSDATE; month_num INTEGER; </CODE>
+</PRE>
+  <P class=3DBodyKeep>or:</P><PRE><CODE =
+class=3DCodeIndent>DECLARE</CODE>
+<CODE class=3DCodeIndent>   comp_type VARCHAR2(3); </CODE>
+<CODE class=3DCodeIndent>   right_now DATE :=3D SYSDATE; </CODE>
+<CODE class=3DCodeIndent>   month_num INTEGER; </CODE>
+</PRE>
+  <H4 class=3DHeadC>Ignore alignment for declarations</H4>
+  <P class=3DBody>Many programmers like to align their declarations--for =
+
+  example:</P><PRE><CODE class=3DCodeIndent>DECLARE</CODE>
+<CODE class=3DCodeIndent>   company_name      VARCHAR2(30);</CODE>
+<CODE class=3DCodeIndent>   company_id        INTEGER;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   employee_name     VARCHAR2(60);</CODE>
+<CODE class=3DCodeIndent>   hire_date         DATE;</CODE>
+<CODE class=3DCodeIndent>   termination_date  DATE;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   min_value         NUMBER;</CODE>
+</PRE>
+  <P class=3DBody>I am not convinced of the value of declaration =
+alignment.=20
+  Although alignment makes it easier to scan down the datatypes, the =
+datatype=20
+  isn't nearly as important as the identifier, which is already =
+left-justified.=20
+  A commitment to alignment also raises all kinds of questions that =
+consume a=20
+  developer's time and thought processes: If you have one long variable =
+name, do=20
+  you have to move all the other datatypes out to match that datatype=20
+  declaration? What about when you add a new, very long declaration into =
+an=20
+  existing section? Do you have to go back and add a tab or two to the =
+existing=20
+  declarations? </P>
+  <P class=3DBody>The elegance of alignment also breaks down when you =
+include=20
+  comments above individual declarations, as shown in the following =
+example:</P><PRE><CODE class=3DCodeIndent>DECLARE</CODE>
+<CODE class=3DCodeIndent>   company_name      VARCHAR2(30);</CODE>
+<CODE class=3DCodeIndent>   /* Primary key into company table */</CODE>
+<CODE class=3DCodeIndent>   company_id        INTEGER;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   employee_name     VARCHAR2(60);</CODE>
+<CODE class=3DCodeIndent>   /* Date hired; must be no greater than =
+today's date. */</CODE>
+<CODE class=3DCodeIndent>   hire_date         DATE;</CODE>
+<CODE class=3DCodeIndent>   termination_date  DATE;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   min_value         NUMBER;</CODE>
+</PRE>
+  <P class=3DBody>When the comment text cuts across the vast spaces of =
+the=20
+  alignment tabs, it just makes the datatype look isolated from its=20
+  identifier.</P>
+  <P class=3DBody>I believe that you are better off ignoring alignment =
+for=20
+  declarations.<A class=3Dfootnote title=3DFootnote=20
+  =
+href=3D"http://oreilly.com/catalog/oraclep2/chapter/ch03.html#footnote-1"=
+>[1]</A>=20
+  Keep the elements of the declaration (datatype and default value) =
+close to the=20
+  identifier.</P>
+  <H3 class=3DHeadB>Formatting Multiline Statements </H3>
+  <P class=3DBody>Because a statement is terminated by a semicolon (<KBD =
+
+  class=3DCommand>;</KBD>) rather than by the physical end of the line, =
+statements=20
+  can be continued onto additional lines without any specific =
+continuation=20
+  symbol or operator. This makes it very easy to spread a statement =
+across more=20
+  than one line, but it can also make it difficult to read across these =
+lines.=20
+  </P>
+  <P class=3DBody>Here are some examples of multiline statements that =
+are hard to=20
+  follow:</P><PRE><CODE class=3DCodeIndent>IF total_sales &lt; =
+maximum_sales AND company_type =3D 'NEW' AND (override</CODE>
+<CODE class=3DCodeIndent>=3D 'Y' OR total_company_revenue &lt; =
+planned_revenue (SYSDATE))</CODE>
+<CODE class=3DCodeIndent>THEN</CODE>
+<CODE class=3DCodeIndent>   accept_order;</CODE>
+<CODE class=3DCodeIndent>END IF;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>generate_company_statistics (company_id, =
+last_year_date</CODE>
+<CODE class=3DCodeIndent>, rollup_type, total, average, variance, =
+budgeted, next_year_plan);</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>total_sales :=3D product_sales (company_id) + =
+admin_cutbacks * </CODE>
+<CODE class=3DCodeIndent>.5 - overhead - golden_parachutes;</CODE>
+</PRE>
+  <P class=3DBody>The format of these continuation lines highlights a =
+key=20
+  question: How do you best break up a complex expression so the =
+different parts=20
+  can be read clearly, but still be connected to the statement as a =
+whole? The=20
+  following guidelines respond to this question and produce much cleaner =
+
+  code.</P>
+  <H4 class=3DHeadC>Use indentation to offset all continuation lines =
+under the=20
+  first line.</H4>
+  <P class=3DBody>This is the most important guideline. The best way to =
+identify=20
+  continuation lines is to use indentation to logically subsume those =
+lines=20
+  under the main or first line of the statement. The following call to=20
+  generate_company_statistics is obscured because the continuation line =
+butts=20
+  right up against the left margin with the module name:</P><PRE><CODE =
+class=3DCodeIndent>generate_company_statistics (company_id, =
+last_year_date,</CODE>
+<CODE class=3DCodeIndent>rollup_type, total, average, variance, =
+budgeted, next_year_plan);</CODE>
+</PRE>
+  <P class=3DBody>If I indent the continuation line, the relationship of =
+the=20
+  second line to the first becomes clear:</P><PRE><CODE =
+class=3DCodeIndent>generate_company_statistics (company_id, =
+last_year_date,</CODE>
+<CODE class=3DCodeIndent>   rollup_type, total, average, variance, =
+budgeted, next_year_plan);</CODE>
+</PRE>
+  <P class=3DBody>This attempt to recode, however, shows that simply =
+adding an=20
+  indentation isn't always enough. While it is clear that the line =
+starting with=20
+  rollup_type "belongs" to the previous line, the relationship of the =
+text on=20
+  the continuation line to that of the first line is unclear. We need =
+more than=20
+  a simple call to "Indent." There are several possible approaches:</P>
+  <DL>
+    <DT class=3DListVariableTerm>Indent module-call continuation lines =
+to align=20
+    all parameters vertically.=20
+    <DD class=3DListVariable>You can place a single parameter on each =
+line for=20
+    maximum clarity, or include more than one parameter on a line--as =
+long as=20
+    they are properly indented. You can even break up the parameters so =
+that=20
+    related parameters go together on separate lines. If the name of the =
+
+    procedure is long and results in pushing the alignment column for =
+parameters=20
+    too far to the right, start the entire parameter list on the next =
+line=20
+    (indented) and then align all parameters against that second line. =
+Here are=20
+    some examples illustrating these rules:=20
+    <P><CODE class=3DCodeIndent>gen_stats (company_id, last_year_date,=20
+    rollup_type, </CODE><CODE class=3DCodeIndent>total, average, =
+variance,=20
+    budgeted, next_year_plan);</CODE> <CODE =
+class=3DCodeIndent>&nbsp;</CODE> <CODE=20
+    class=3DCodeIndent>gen_stats (company_id, </CODE><CODE=20
+    class=3DCodeIndent>last_year_date, </CODE><CODE =
+class=3DCodeIndent>rollup_type,=20
+    </CODE><CODE class=3DCodeIndent>total, </CODE><CODE =
+class=3DCodeIndent>average,=20
+    </CODE><CODE class=3DCodeIndent>variance, </CODE><CODE=20
+    class=3DCodeIndent>budgeted, </CODE><CODE=20
+    class=3DCodeIndent>next_year_plan);</CODE> <CODE=20
+    class=3DCodeIndent>&nbsp;</CODE> <CODE class=3DCodeIndent>gen_stats =
+</CODE><CODE=20
+    class=3DCodeIndent>(company_id, last_year_date, rollup_type, =
+</CODE><CODE=20
+    class=3DCodeIndent>total, average, variance, budgeted, =
+next_year_plan);</CODE>=20
+    </P>
+    <DD class=3DListVariable>I prefer the third alternative, in which =
+all=20
+    parameters are moved to the line following the name of the module. =
+You can=20
+    then place multiple parameters on the same line or place one =
+parameter on=20
+    each line, but the indentation is always and only the standard three =
+spaces=20
+    in from the start of the module name.=20
+    <P></P>
+    <DT class=3DListVariableTerm>Make it very obvious that a statement =
+is=20
+    continued.=20
+    <DD class=3DListVariable>If a statement is not going to fit onto a =
+single=20
+    line, break up the statement so that it is quite obvious, with the =
+most=20
+    casual glance, that the first line could not possibly finish the =
+statement.=20
+    The following examples highlight this approach:=20
+    <P>
+    <LI class=3DFM-ListBullet>The IN statement of a loop clearly needs =
+its range:=20
+    <P><CODE class=3DCodeIndent>FOR month_index IN</CODE> <CODE=20
+    class=3DCodeIndent>first_month .. last_month</CODE> <CODE=20
+    class=3DCodeIndent>LOOP</CODE> <CODE class=3DCodeIndent>...</CODE> =
+</P>
+    <LI class=3DFM-ListBullet>An assignment could not possibly end with =
+a "+":=20
+    <P><CODE class=3DCodeIndent>q1_sales :=3D </CODE><CODE=20
+    class=3DCodeIndent>month1_sales +</CODE> <CODE =
+class=3DCodeIndent>month2_sales=20
+    +</CODE> <CODE class=3DCodeIndent>month3_sales;</CODE> </P>
+    <LI class=3DFM-ListBullet>The last comma in the first line of =
+parameters=20
+    indicates that other parameters follow:=20
+    <P><CODE class=3DCodeIndent>generate_company_statistics </CODE><CODE =
+
+    class=3DCodeIndent>(company_id, last_year_date,</CODE> <CODE=20
+    class=3DCodeIndent>rollup_type, total, average, variance, budgeted,=20
+    next_year_plan);</CODE> </P></LI></DD></DL>
+  <H2 class=3DHeadA><A name=3D64385></A>Formatting SQL Statements</H2>
+  <P class=3DBody>Because PL/SQL is an extension to the SQL language, =
+you can=20
+  place SQL statements directly in your PL/SQL programs. You can also =
+define=20
+  cursors based on SELECT statements. This section summarizes my =
+suggestions for=20
+  formatting SQL statements and cursors for maximum readability.</P>
+  <P class=3DBody>PL/SQL supports the use of four SQL DML (Data =
+Manipulation=20
+  Language) statements: INSERT, UPDATE, DELETE, and SELECT. Each of =
+these=20
+  statements is composed of a series of "clauses," as in the WHERE =
+clause and=20
+  the ORDER BY clause. SQL statements can be very complex, to say the =
+least.=20
+  Without a consistent approach to indentation and alignment inside =
+these=20
+  statements, you can end up with a real mess. I have found the =
+following=20
+  guidelines useful:</P>
+  <DL>
+    <DT class=3DFM-ListVariableTerm->Right-align the reserved words for =
+the=20
+    clauses against the DML statement.=20
+    <DD class=3DFM-ListVariable->I recommend that you visually separate =
+the SQL=20
+    reserved words which identify the separate clauses from the=20
+    application-specific column and table names. The following table =
+shows how I=20
+    use right-alignment on the reserved words to create a vertical =
+border=20
+    between them and the rest of the SQL statement:=20
+    <P>
+    <TABLE border=3D1>
+      <TBODY>
+      <TR>
+        <TH>
+          <P class=3DCellHeading>SELECT</P></TH>
+        <TH>
+          <P class=3DCellHeading>INSERT</P></TH>
+        <TH>
+          <P class=3DCellHeading>UPDATE</P></TH>
+        <TH>
+          <P class=3DCellHeading>DELETE</P></TH></TR>
+      <TR>
+        <TD><PRE><CODE class=3DCode>SELECT</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode>  FROM</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode> WHERE</CODE>
+<CODE class=3DCode>   AND</CODE>
+<CODE class=3DCode>    OR</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode> GROUP BY</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode>HAVING</CODE>
+<CODE class=3DCode>   AND</CODE>
+<CODE class=3DCode>    OR</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode> ORDER BY</CODE>
+</PRE></TD>
+        <TD><PRE><CODE class=3DCode>INSERT INTO</CODE>
+<CODE class=3DCode>     VALUES</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode>INSERT INTO</CODE>
+<CODE class=3DCode>     SELECT</CODE>
+<CODE class=3DCode>       FROM</CODE>
+<CODE class=3DCode>      WHERE</CODE>
+</PRE></TD>
+        <TD><PRE><CODE class=3DCode>UPDATE</CODE>
+<CODE class=3DCode>   SET</CODE>
+<CODE class=3DCode> WHERE</CODE>
+</PRE></TD>
+        <TD><PRE><CODE class=3DCode>DELETE</CODE>
+<CODE class=3DCode>  FROM</CODE>
+<CODE class=3DCode> WHERE</CODE>
+</PRE></TD></TR></TBODY></TABLE>
+    <P class=3DListBullet->Here are some examples of this format in =
+use:</P><CODE=20
+    class=3DCodeIndent>SELECT last_name, first_name</CODE> <CODE=20
+    class=3DCodeIndent>FROM employee</CODE> <CODE =
+class=3DCodeIndent>WHERE=20
+    department_id =3D 15</CODE> <CODE class=3DCodeIndent>AND hire_date =
+&lt;=20
+    SYSDATE;</CODE> <CODE class=3DCodeIndent>&nbsp;</CODE> <CODE=20
+    class=3DCodeIndent>SELECT department_id, SUM (salary) AS =
+total_salary</CODE>=20
+    <CODE class=3DCodeIndent>FROM employee</CODE> <CODE =
+class=3DCodeIndent>GROUP BY=20
+    department_id</CODE> <CODE class=3DCodeIndent>ORDER BY total_salary=20
+    DESC;</CODE> <CODE class=3DCodeIndent>&nbsp;</CODE> <CODE=20
+    class=3DCodeIndent>INSERT INTO employee </CODE><CODE=20
+    class=3DCodeIndent>(employee_id, ... )</CODE> <CODE =
+class=3DCodeIndent>VALUES=20
+    </CODE><CODE class=3DCodeIndent>(105 ... );</CODE> <CODE=20
+    class=3DCodeIndent>&nbsp;</CODE> <CODE class=3DCodeIndent>DELETE =
+FROM=20
+    employee</CODE> <CODE class=3DCodeIndent>WHERE department_id =3D =
+15;</CODE>=20
+    <CODE class=3DCodeIndent>&nbsp;</CODE> <CODE =
+class=3DCodeIndent>UPDATE=20
+    employee</CODE> <CODE class=3DCodeIndent>SET hire_date =3D =
+SYSDATE</CODE> <CODE=20
+    class=3DCodeIndent>WHERE hire_date IS NULL</CODE> <CODE =
+class=3DCodeIndent>AND=20
+    termination_date IS NULL;</CODE>=20
+    <P class=3DListBullet->Yes, I realize that the GROUP BY and ORDER BY =
+keywords=20
+    aren't exactly right-aligned to SELECT, but at least the primary =
+words=20
+    (GROUP and ORDER) are aligned. Notice that within each of the WHERE =
+and=20
+    HAVING clauses I right-align the AND and OR Boolean connectors under =
+the=20
+    WHERE keyword.</P>
+    <P class=3DListBullet->This right alignment makes it very easy for =
+me to=20
+    identify the different clauses of the SQL statement, particularly =
+with=20
+    extended SELECTs. You might also consider placing a blank line =
+between=20
+    clauses of longer SQL statements (this is possible in PL/SQL, but is =
+not=20
+    acceptable in "native" SQL executed in SQL*Plus).</P>
+    <DT class=3DFM-ListVariableTerm->Don't skimp on the use of line =
+separators.=20
+    <DD class=3DFM-ListVariable->Within clauses, such separation makes =
+the SQL=20
+    statement easier to read. In particular, place each expression of =
+the WHERE=20
+    clause on its own line, and consider using a separate line for each=20
+    expression in the select list of a SELECT statement. Place each =
+table in the=20
+    FROM clause on its own line. Certainly, put each separate assignment =
+in a=20
+    SET clause of the UPDATE statement on its own line. Here are some=20
+    illustrations of these guidelines:=20
+    <P><CODE class=3DCodeIndent>SELECT last_name,</CODE> <CODE=20
+    class=3DCodeIndent>C.name,</CODE> <CODE class=3DCodeIndent>MAX =
+(SH.salary)=20
+    best_salary_ever</CODE> <CODE class=3DCodeIndent>FROM employee =
+E,</CODE> <CODE=20
+    class=3DCodeIndent>company C,</CODE> <CODE =
+class=3DCodeIndent>salary_history=20
+    SH</CODE> <CODE class=3DCodeIndent>WHERE E.company_id =3D =
+C.company_id</CODE>=20
+    <CODE class=3DCodeIndent>AND E.employee_id =3D SH.employee_id</CODE> =
+<CODE=20
+    class=3DCodeIndent>AND E.hire_date &gt; ADD_MONTHS (SYSDATE, =
+-60);</CODE>=20
+    <CODE class=3DCodeIndent>&nbsp;</CODE> <CODE =
+class=3DCodeIndent>UPDATE=20
+    employee</CODE> <CODE class=3DCodeIndent>SET hire_date =3D =
+SYSDATE,</CODE> <CODE=20
+    class=3DCodeIndent>termination_date =3D NULL</CODE> <CODE =
+class=3DCodeIndent>WHERE=20
+    department_id =3D 105;</CODE>=20
+    <P class=3DNote><B>NOTE:</B> You can place blank lines inside a sql =
+statement=20
+    when you are coding that sql from within a pl/sql block. You may =
+not, on the=20
+    other hand, embed white space in sql statements you are executing =
+from the=20
+    sql*Plus command line.</P></DD></DL>
+  <UL>
+    <LI class=3DListBullet>Use meaningful abbreviations for table and =
+column=20
+    aliases=20
+    <P>
+    <P class=3DListBullet->It drives me crazy when a query has a =
+six-table join=20
+    and the tables have been assigned aliases A, B, C, D, E, and F. How =
+can you=20
+    possibly decipher the WHERE clause in the following SELECT? <CODE=20
+    class=3DCodeIndent>SELECT ... select list ...</CODE> <CODE=20
+    class=3DCodeIndent>FROM employee A, company B, history C, bonus D,=20
+    </CODE><CODE class=3DCodeIndent>profile E, sales F</CODE> <CODE=20
+    class=3DCodeIndent>WHERE A.company_id =3D B.company_id</CODE> <CODE=20
+    class=3DCodeIndent>AND A.employee_id =3D C.employee_id</CODE> <CODE=20
+    class=3DCodeIndent>AND B.company_id =3D F.company_id</CODE> <CODE=20
+    class=3DCodeIndent>AND A.employee_id =3D D.employee_id</CODE> <CODE=20
+    class=3DCodeIndent>AND B.company_id =3D E.company_id;</CODE>=20
+    <P class=3DListBullet->With more sensible table aliases (including =
+no tables=20
+    aliases at all where the table name was short enough already), the=20
+    relationships are much clearer: </P></LI></UL>
+  <P class=3DCodeIndentKeep>SELECT ... select list ...=20
+  <P class=3DCodeIndentKeep>FROM employee EMP, company CO, history HIST, =
+bonus, <PRE><CODE class=3DCodeIndent>       profile PROF, sales</CODE>
+<CODE class=3DCodeIndent> WHERE EMP.company_id =3D CO.company_id</CODE>
+<CODE class=3DCodeIndent>   AND EMP.employee_id =3D =
+HIST.employee_id</CODE>
+<CODE class=3DCodeIndent>   AND CO.company_id =3D =
+SALES.company_id</CODE>
+<CODE class=3DCodeIndent>   AND EMP.employee_id =3D =
+BONUS.employee_id</CODE>
+<CODE class=3DCodeIndent>   AND CO.company_id =3D =
+PROF.company_id;</CODE>
+</PRE>
+  <H2 class=3DHeadA><A name=3D61382></A>Formatting Control =
+Structures</H2>
+  <P class=3DBody>The control structures in your program are the most =
+direct=20
+  representation of the logic needed to implement your specifications. =
+The=20
+  format of these control structures, therefore, will have a significant =
+impact=20
+  on the readability of your code.=20
+  <P class=3DBody>Indentation is the most important element of control =
+structure=20
+  layout. Always keep statements of the same "logical level" at the same =
+
+  indentation level. Let's see what this means for the various control=20
+  structures of PL/SQL.=20
+  <H3 class=3DHeadB>Formatting IF Statements</H3>
+  <P class=3DBody>This conditional construct comes in three flavors:=20
+  <P>
+  <TABLE>
+    <TBODY>
+    <TR>
+      <TD><PRE><CODE class=3DCode>IF &lt;expression&gt;</CODE>
+<CODE class=3DCode>END IF;</CODE>
+</PRE></TD>
+      <TD><PRE><CODE class=3DCode>IF &lt;expression&gt;</CODE>
+<CODE class=3DCode>ELSE</CODE>
+<CODE class=3DCode>END IF;</CODE>
+</PRE></TD>
+      <TD><PRE><CODE class=3DCode>IF &lt;expression&gt;</CODE>
+<CODE class=3DCode>ELSIF &lt;expression&gt;</CODE>
+<CODE class=3DCode>ELSE</CODE>
+<CODE class=3DCode>END IF; </CODE>
+</PRE></TD></TR></TBODY></TABLE>
+  <P class=3DBody>In general, the IF statement is composed of clauses in =
+which=20
+  there is a Boolean expression or condition and a section of code =
+executed when=20
+  that condition evaluates to TRUE.=20
+  <P class=3DBody>So if you want to use indentation to reveal the =
+logical=20
+  structure of the simplest form of the IF statement (IF-END IF), I =
+suggest one=20
+  of these two styles:=20
+  <P>
+  <TABLE border=3D1>
+    <TBODY>
+    <TR>
+      <TH>
+        <P class=3DCellHeading>New Line for THEN </P></TH>
+      <TH>
+        <P class=3DCellHeading>Same Line for THEN </P></TH></TR>
+    <TR>
+      <TD><PRE><CODE class=3DCode>IF &lt;expression&gt;</CODE>
+<CODE class=3DCode>THEN</CODE>
+<CODE class=3DCode>   executable_statements;</CODE>
+<CODE class=3DCode>END IF;</CODE>
+</PRE></TD>
+      <TD><PRE><CODE class=3DCode>IF &lt;expression&gt; THEN</CODE>
+<CODE class=3DCode>   executable_statements</CODE>
+<CODE class=3DCode>END IF;</CODE>
+</PRE></TD></TR>
+    <TR>
+      <TD><PRE><CODE class=3DCode>IF &lt;expression&gt;</CODE>
+<CODE class=3DCode>THEN</CODE>
+<CODE class=3DCode>   executable_statements;</CODE>
+<CODE class=3DCode>ELSE</CODE>
+<CODE class=3DCode>   else_executable_statements;</CODE>
+<CODE class=3DCode>END IF;</CODE>
+</PRE></TD>
+      <TD><PRE><CODE class=3DCode>IF &lt;expression&gt; THEN</CODE>
+<CODE class=3DCode>   executable_statements</CODE>
+<CODE class=3DCode>ELSE</CODE>
+<CODE class=3DCode>   else_executable_statements;</CODE>
+<CODE class=3DCode>END IF;</CODE>
+</PRE></TD></TR>
+    <TR>
+      <TD><PRE><CODE class=3DCode>IF &lt;expression1&gt;1</CODE>
+<CODE class=3DCode>THEN</CODE>
+<CODE class=3DCode>   executable_statements1;</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode>ELSIF &lt;expression2&gt;</CODE>
+<CODE class=3DCode>THEN</CODE>
+<CODE class=3DCode>   executable_statements2;</CODE>
+<CODE class=3DCode>...</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode>ELSIF &lt;expressionN&gt;</CODE>
+<CODE class=3DCode>THEN</CODE>
+<CODE class=3DCode>   executable_statementsN;</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode>ELSE</CODE>
+<CODE class=3DCode>   else_executable_statements;</CODE>
+<CODE class=3DCode>END IF;</CODE>
+</PRE></TD>
+      <TD><PRE><CODE class=3DCode>IF &lt;expression1&gt; THEN</CODE>
+<CODE class=3DCode>   executable_statements1;</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode>ELSIF &lt;expression2&gt; THEN</CODE>
+<CODE class=3DCode>   executable_statements2;</CODE>
+<CODE class=3DCode>...</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode>ELSIF &lt;expressionN&gt; THEN</CODE>
+<CODE class=3DCode>   executable_statementsN;</CODE>
+<CODE class=3DCode>&nbsp;</CODE>
+<CODE class=3DCode>ELSE</CODE>
+<CODE class=3DCode>   else_executable_statements;</CODE>
+<CODE class=3DCode>END IF;</CODE>
+</PRE></TD></TR></TBODY></TABLE>
+  <P class=3DBody>Notice that in both versions the executable statements =
+are=20
+  indented three spaces from the column in which the IF and END IF =
+reserved=20
+  words are found. The only difference between the two formats is the =
+placement=20
+  of the THEN reserved word. I prefer the new line format, in which the =
+THEN=20
+  appears on a line by itself after the IF condition. This format =
+provides more=20
+  whitespace than the other. I could create the whitespace by using a =
+blank,=20
+  rather than indenting three spaces, but then the executable statements =
+for the=20
+  IF clause are made distinct from the condition--and they are logically =
+
+  connected. Let's examine some actual code to get a better sense of the =
+
+  differences.=20
+  <P class=3DBody>The following example shows proper IF statement =
+indentation with=20
+  THEN on the same line: <PRE><CODE class=3DCodeIndent>IF max_sales &gt; =
+2000 THEN</CODE>
+<CODE class=3DCodeIndent>   notify_accounting ('over_limit');</CODE>
+<CODE class=3DCodeIndent>   RAISE FORM_TRIGGER_FAILURE;</CODE>
+<CODE class=3DCodeIndent>END IF;</CODE>
+</PRE>
+  <P class=3DBody>This code has proper IF statement indentation with =
+THEN on the=20
+  next line: <PRE><CODE class=3DCodeIndent>IF max_sales &gt; 2000 =
+</CODE>
+<CODE class=3DCodeIndent>THEN</CODE>
+<CODE class=3DCodeIndent>   notify_accounting ('over_limit');</CODE>
+<CODE class=3DCodeIndent>   RAISE FORM_TRIGGER_FAILURE;</CODE>
+<CODE class=3DCodeIndent>END IF;</CODE>
+</PRE>
+  <H3 class=3DHeadB>Formatting Loops</H3>
+  <P class=3DBody>You are going to be writing many loops in your PL/SQL =
+programs,=20
+  and they will usually surround some of the most complicated code in =
+your=20
+  application. For this reason, the format you use to structure your =
+loops will=20
+  make a critical difference in the overall comprehensibility of your =
+programs.=20
+  <P class=3DBody>PL/SQL offers the following kinds of loops:=20
+  <UL>
+    <LI class=3DListBullet>Infinite or simple loop=20
+    <P></P>
+    <LI class=3DListBullet>WHILE loop=20
+    <P></P>
+    <LI class=3DListBullet>Indexed FOR loop (numeric and cursor)=20
+    <P></P></LI></UL>
+  <P class=3DBody>Each loop has a loop boundary (begin and end =
+statements) and a=20
+  loop body. The loop body should be indented from the boundary (again, =
+I=20
+  recommend three spaces of indentation).=20
+  <P class=3DBody>As with the IF statement, you can either choose to =
+leave the=20
+  LOOP reserved word at the end of the line containing the WHILE and FOR =
+
+  statements or place it on the next line. I prefer the latter, because =
+then=20
+  both the LOOP and END LOOP reserved words appear at the same column =
+position=20
+  (indentation) in the program.=20
+  <P class=3DBody>Here are my recommendations for formatting your loops: =
+
+  <UL>
+    <LI class=3DListBullet>The infinite or simple loop:=20
+    <P></P></LI></UL>
+  <P class=3DCodeIndentKeep>LOOP=20
+  <P class=3DCodeIndentKeep>executable_statements; <PRE><CODE =
+class=3DCodeIndent>END LOOP;</CODE>
+<LI class=3DListBullet>The WHILE loop:
+<P>
+<CODE class=3DCodeIndent>WHILE condition</CODE>
+<CODE class=3DCodeIndent>LOOP</CODE>
+<CODE class=3DCodeIndent>   executable_statements;</CODE>
+<CODE class=3DCodeIndent>END LOOP;</CODE>
+</P><LI class=3DListBullet>The numeric and cursor FOR loops:
+<P>
+<CODE class=3DCodeIndent>FOR for_index IN low_value .. high_value</CODE>
+<CODE class=3DCodeIndent>LOOP</CODE>
+<CODE class=3DCodeIndent>   executable_statements;</CODE>
+<CODE class=3DCodeIndent>END LOOP;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>FOR record_index IN my_cursor</CODE>
+<CODE class=3DCodeIndent>LOOP</CODE>
+<CODE class=3DCodeIndent>   executable_statements;</CODE>
+<CODE class=3DCodeIndent>END LOOP;</CODE>
+</P></LI></PRE>
+  <H3 class=3DHeadB>Formatting Exception Handlers</H3>
+  <P class=3DBody>PL/SQL provides a very powerful facility for dealing =
+with=20
+  errors. An entirely separate exception section contains one or more =
+"handlers"=20
+  to trap exceptions and execute code when that exception occurs. =
+Logically, the=20
+  exception section is structured like a conditional CASE statement =
+(which, by=20
+  the way, is not supported by PL/SQL).=20
+  <P class=3DBody>As you might expect, the format for the exception =
+section should=20
+  resemble that of an IF statement. Here is a general example of the =
+exception=20
+  section: <PRE><CODE class=3DCodeIndent>EXCEPTION</CODE>
+<CODE class=3DCodeIndent>   WHEN NO_DATA_FOUND</CODE>
+<CODE class=3DCodeIndent>   THEN</CODE>
+<CODE class=3DCodeIndent>      executable_statements1;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   WHEN DUP_VAL_ON_INDEX</CODE>
+<CODE class=3DCodeIndent>   THEN</CODE>
+<CODE class=3DCodeIndent>      executable_statements1;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+</PRE>
+  <P class=3DCodeIndentKeep>...=20
+  <P class=3DCodeIndentKeep>WHEN OTHERS=20
+  <P class=3DCodeIndentKeep>THEN=20
+  <P class=3DCodeIndentKeep>otherwise_code; <PRE><CODE =
+class=3DCodeIndent>END;</CODE>
+</PRE>
+  <P class=3DBody>Instead of an IF or ELSIF keyword, the exception =
+handler uses=20
+  the word WHEN. In place of a condition (Boolean expression), the WHEN =
+clause=20
+  lists an exception name followed by a THEN and finally the executable=20
+  statements for that exception. In place of ELSE, the exception section =
+offers=20
+  a WHEN OTHERS clause.=20
+  <P class=3DBody>Follow these guidelines:=20
+  <UL>
+    <LI class=3DListBullet>Indent each WHEN clause in from the EXCEPTION =
+keyword=20
+    that indicates the start of the exception section, as I've shown =
+above.=20
+    Place the THEN directly below the WHEN.=20
+    <P></P>
+    <LI class=3DListBullet>Indent all the executable statements for that =
+handler=20
+    in from the THEN keyword.=20
+    <P></P>
+    <LI class=3DListBullet>Place a blank line before each WHEN (except =
+for the=20
+    first).=20
+    <P></P></LI></UL>
+  <H2 class=3DHeadA><A name=3D65283></A>Formatting PL/SQL Blocks</H2>
+  <P class=3DBody>As I've outlined in Chapter 2, every PL/SQL program is =
+
+  structured as a block containing up to four sections:=20
+  <UL>
+    <LI class=3DListBullet>Header=20
+    <P></P>
+    <LI class=3DListBullet>Declaration section=20
+    <P></P>
+    <LI class=3DListBullet>Executable section=20
+    <P></P>
+    <LI class=3DListBullet>Exception section=20
+    <P></P></LI></UL>
+  <P class=3DBody>The PL/SQL block structure forms the backbone of your =
+code. A=20
+  consistent formatting style for the block, therefore, is critical. =
+This=20
+  formatting should make clear these different sections. (See Chapter =
+15, <EM=20
+  class=3DChapterTitle>Procedures and Functions</EM>, for more =
+information about=20
+  the block structure.)=20
+  <P class=3DBody>Consider the following function: <PRE><CODE =
+class=3DCodeIndent>FUNCTION </CODE>
+<CODE class=3DCodeIndent>company_name (company_id_in IN =
+company.company_id%TYPE)    RETURN </CODE>
+<CODE class=3DCodeIndent>VARCHAR2 IS cname company.company_id%TYPE; =
+BEGIN</CODE>
+<CODE class=3DCodeIndent>   SELECT name INTO cname FROM company</CODE>
+<CODE class=3DCodeIndent>    WHERE company_id =3D company_id_in;</CODE>
+<CODE class=3DCodeIndent>   RETURN cname;</CODE>
+<CODE class=3DCodeIndent>EXCEPTION WHEN NO_DATA_FOUND THEN   RETURN =
+NULL; END;</CODE>
+</PRE>
+  <P class=3DBody>You know that this program is a function because the =
+first word=20
+  in the program is FUNCTION. Other than that, however, it is very =
+difficult to=20
+  follow the structure of this program. Where is the declaration =
+section? Where=20
+  does the executable section begin and end?=20
+  <P class=3DBodyKeep>Here is that same function after we apply some=20
+  straightforward formatting rules to it:=20
+  <P class=3DCodeIndentKeep>FUNCTION company_name (company_id_in IN=20
+  company.company_id%TYPE)=20
+  <P class=3DCodeIndentKeep>RETURN VARCHAR2 <PRE><CODE =
+class=3DCodeIndent>IS</CODE>
+<CODE class=3DCodeIndent>   cname company.company_id%TYPE;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>BEGIN</CODE>
+<CODE class=3DCodeIndent>   SELECT name INTO cname FROM company</CODE>
+<CODE class=3DCodeIndent>    WHERE company_id =3D company_id_in;</CODE>
+<CODE class=3DCodeIndent>   RETURN cname;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>EXCEPTION</CODE>
+<CODE class=3DCodeIndent>   WHEN NO_DATA_FOUND </CODE>
+<CODE class=3DCodeIndent>   THEN</CODE>
+<CODE class=3DCodeIndent>      RETURN NULL;</CODE>
+<CODE class=3DCodeIndent>END;</CODE>
+</PRE>
+  <P class=3DBody>Now it is easy to see that the header of the function =
+consists=20
+  of: <PRE><CODE class=3DCodeIndent>FUNCTION company_name (company_id_in =
+IN company.company_id%TYPE) </CODE>
+<CODE class=3DCodeIndent>   RETURN VARCHAR2</CODE>
+</PRE>
+  <P class=3DBody>The declaration section, which comes after the IS and =
+before the=20
+  BEGIN, clearly consists of a single declaration of the cname variable. =
+The=20
+  executable section consists of all the statements after the BEGIN and =
+before=20
+  the EXCEPTION statement; these are indented in from the BEGIN. =
+Finally, the=20
+  exception section shows a single specific exception handler and a WHEN =
+OTHERS=20
+  exception.=20
+  <P class=3DBody>Generally, indent the statements for a given section =
+from the=20
+  reserved words which initiate the section. You can also include a =
+blank line=20
+  before each section, as I do above, for the executable section (before =
+BEGIN)=20
+  and the exception section (before EXCEPTION). I usually place the IS =
+keyword=20
+  on its own line to clearly differentiate between the header of a =
+module and=20
+  its declaration section.=20
+  <H2 class=3DHeadA><A name=3D37208></A>Formatting Packages</H2>
+  <P class=3DBody>A package is a collection of related objects, =
+including=20
+  variables, TYPE statements (to define structures for records, tables, =
+and=20
+  cursors), exceptions, and modules. We have already covered structuring =
+all the=20
+  different objects which make up a package. Now, let's take a look at =
+how to=20
+  structure the package itself.=20
+  <P class=3DBody>A package has both a specification and a body. The =
+package=20
+  specification contains the declarations or definitions of all those =
+objects=20
+  that are visible outside of the package--the public objects. This =
+means that=20
+  the objects can be accessed by any account that has been granted =
+EXECUTE=20
+  authority on the package. The package body contains the implementation =
+of all=20
+  cursors and modules defined in the specification, and the additional=20
+  declaration and implementation of all other package objects. If an =
+object,=20
+  such as a string variable, is declared in the body and not in the =
+package,=20
+  then any module in the package can reference that variable, but no =
+program=20
+  outside of the package can see it. That variable is invisible or =
+private to=20
+  the package.=20
+  <P class=3DBody>The first point to make about the package structure is =
+that all=20
+  objects declared in the specification exist within the context of the =
+package=20
+  and so should be indented from the PACKAGE statement itself, as shown =
+below: <PRE><CODE class=3DCodeIndent>PACKAGE rg_select</CODE>
+<CODE class=3DCodeIndent>IS</CODE>
+<CODE class=3DCodeIndent>   list_name VARCHAR2(60);</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   PROCEDURE init_list </CODE>
+<CODE class=3DCodeIndent>      (item_name_in IN VARCHAR2, </CODE>
+<CODE class=3DCodeIndent>       fill_action_in IN VARCHAR2 :=3D =
+'IMMEDIATE');</CODE>
+<CODE class=3DCodeIndent>   PROCEDURE delete_list;</CODE>
+<CODE class=3DCodeIndent>   PROCEDURE clear_list;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>END rg_select;</CODE>
+</PRE>
+  <P class=3DBody>The same is true for the package body. I suggest that =
+you always=20
+  include a label for the END statement in a package so that you can =
+easily=20
+  connect up that END with the end of the package as a whole. I place =
+the IS=20
+  keyword on a new line to set off the first declaration in the package =
+from the=20
+  name of the package. You could always use a blank line. Notice that I =
+use=20
+  blank lines in rg_select to segregate different modules which are =
+related by=20
+  function. I think that logical grouping is always preferable to an =
+arbitrary=20
+  grouping such as alphabetical order.=20
+  <P class=3DBody>The other important element in formatting a package is =
+the order=20
+  in which objects are listed in the package. I generally list objects =
+in the=20
+  order of complexity of their structure, as follows:=20
+  <UL>
+    <LI class=3DListBullet>Scalar variables, such as a VARCHAR2 =
+declaration=20
+    <P></P>
+    <LI class=3DListBullet>Complex datatypes, such as records and tables =
+
+    <P></P>
+    <LI class=3DListBullet>Database-related declarations, such as =
+cursors=20
+    <P></P>
+    <LI class=3DListBullet>Named exceptions=20
+    <P></P>
+    <LI class=3DListBullet>Modules (procedures and functions)=20
+    <P></P></LI></UL>
+  <P class=3DBody>As with simple variable declarations, I sometimes have =
+many=20
+  different but related objects in my package. If so, I might group =
+those types=20
+  of objects together. But within that grouping, I still follow the =
+above order.=20
+
+  <H2 class=3DHeadA><A name=3D94685></A>Using Comments Effectively</H2>
+  <P class=3DBody>The object of an effective coding style is to make the =
+program=20
+  more understandable and maintainable. Most programs will benefit from=20
+  documentation which explains what is going on inside those programs. =
+There are=20
+  two forms of code documentation: external and internal. External =
+documentation=20
+  is descriptive information about a program which is written and stored =
+
+  separately from the program itself. Internal documentation, also known =
+as=20
+  inline documentation or comments, is placed within the program itself, =
+either=20
+  at the program level or the statement level. (For an introduction to =
+inline=20
+  documentation and the types of PL/SQL comments, see the section called =
+
+  "Comments" in Chapter 2.)=20
+  <P class=3DBody>The best kind of internal documentation derives from =
+your=20
+  programming style. If you apply many of the guidelines in this chapter =
+and=20
+  throughout this book, you will be able to write code which is, to a =
+great=20
+  extent, self-documenting. Here are some general tips:=20
+  <UL>
+    <LI class=3DListBullet>Write straightforward code that avoids clever =
+tricks.=20
+    <P></P>
+    <LI class=3DListBullet>Think of names for variables and modules that =
+
+    accurately describe their purpose.=20
+    <P></P>
+    <LI class=3DListBullet>Use named constants instead of literal =
+values.=20
+    <P></P>
+    <LI class=3DListBullet>Employ a clean, consistent layout.=20
+    <P></P></LI></UL>
+  <P class=3DBody>Do all these things and more, and you will find that =
+you need to=20
+  write fewer comments to explain your code.=20
+  <P class=3DBody>Reducing the need for comments is important. Few =
+developers make=20
+  or have the time for extensive documentation in addition to their =
+development=20
+  efforts, and, more importantly, many comments tend to duplicate the =
+code. This=20
+  raises a maintenance issue because those comments will have to be =
+changed when=20
+  the code is changed.=20
+  <P class=3DBody>While it is my hope that after reading this book you =
+will write=20
+  more self-documenting code, there is little doubt that you will still =
+need to=20
+  comment your code. The following example shows the use of single- and=20
+  multiline comments in PL/SQL: <PRE><CODE class=3DCodeIndent>PROCEDURE =
+calc_totals (company_id IN NUMBER,--The company key</CODE>
+<CODE class=3DCodeIndent>                       total_type IN =
+VARCHAR2--ALL or NET</CODE>
+<CODE class=3DCodeIndent>                      );</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>/*</CODE>
+<CODE class=3DCodeIndent>|| For every employee hired more than five =
+years ago,</CODE>
+<CODE class=3DCodeIndent>|| give them a bonus and send them an e-mail =
+notification.</CODE>
+<CODE class=3DCodeIndent>*/</CODE>
+<CODE class=3DCodeIndent>FOR emp_rec IN emp_cur (ADD_MONTHS (SYSDATE, =
+-60))</CODE>
+<CODE class=3DCodeIndent>LOOP</CODE>
+<CODE class=3DCodeIndent>   apply_bonus (emp_rec.employee_id);</CODE>
+<CODE class=3DCodeIndent>   send_notification =
+(emp_rec.employee_id);</CODE>
+<CODE class=3DCodeIndent>END LOOP;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>-- IF :SYSTEM.FORM_STATUS =3D 'CHANGED' THEN =
+COMMIT; END IF;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>FUNCTION display_user </CODE>
+<CODE class=3DCodeIndent>   (user_id IN NUMBER /* Must be valid ID */, =
+user_type IN VARCHAR2)</CODE>
+</PRE>
+  <P class=3DBody>The first example uses the single-line comment syntax =
+to include=20
+  endline descriptions for each parameter in the procedure =
+specification. The=20
+  second example uses a multiline comment to explain the purpose of the =
+FOR=20
+  loop. The third example uses the double-hyphen to comment out a whole =
+line of=20
+  code. The last example embeds a comment in the middle of a line of =
+code using=20
+  the block comment syntax.=20
+  <P class=3DBody>These two types of comments offer the developer =
+flexibility in=20
+  how to provide inline documentation. The rest of this section offers=20
+  guidelines for writing effective comments in your PL/SQL programs.=20
+  <H3 class=3DHeadB>Comment As You Code</H3>
+  <P class=3DBody>It is very difficult to make time to document your =
+code after=20
+  you have finished writing your program. Psychologically, you want to =
+(and=20
+  often need to) move on to the next programming challenge after you get =
+a=20
+  program working.=20
+  <P class=3DBody>You may also have a harder time writing your comments =
+once you=20
+  have put some distance between your brain cells and those lines of =
+code. Why=20
+  exactly did you write the loop that way? Where precisely is the value =
+of that=20
+  global variable set? Unless you have total recall, post-development=20
+  documentation can be a real challenge.=20
+  <P class=3DBody>The last and perhaps most important reason to write =
+your=20
+  comments as you write your code is that the resulting code will have =
+fewer=20
+  bugs and (independent of the comments themselves) be easier to =
+understand.=20
+  <P class=3DBody>When you write a comment you (theoretically) explain =
+what your=20
+  code is meant to accomplish. If you find it difficult to come up with =
+that=20
+  explanation, there is a good chance that you lack a full understanding =
+of what=20
+  the program does or should do.=20
+  <P class=3DBody>The effort that you make to come up with the right =
+comment will=20
+  certainly improve your comprehension, and may also result in code =
+correction.=20
+  In this sense, good inline documentation can be as beneficial as a =
+review of=20
+  your code by a peer. In both cases, the explanation will reveal =
+important=20
+  information about your program.=20
+  <H3 class=3DHeadB>Explain the Why--Not the How--of Your Program</H3>
+  <P class=3DBody>What do you think of the comments in the following =
+Oracle Forms=20
+  trigger code? <PRE><CODE class=3DCodeIndent>-- If the total =
+compensation is more than the maximum...</CODE>
+<CODE class=3DCodeIndent>IF :employee.total_comp &gt; =
+maximum_salary</CODE>
+<CODE class=3DCodeIndent>THEN</CODE>
+<CODE class=3DCodeIndent>   -- Inform the user of the problem.</CODE>
+<CODE class=3DCodeIndent>   MESSAGE ('Total compensation exceeds =
+maximum. Please re-enter!');</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   -- Reset the counter to zero.</CODE>
+<CODE class=3DCodeIndent>   :employee.comp_counter :=3D 0;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   -- Raise the exception to stop trigger =
+processing.</CODE>
+<CODE class=3DCodeIndent>   RAISE FORM_TRIGGER_FAILURE;</CODE>
+<CODE class=3DCodeIndent>END IF;</CODE>
+</PRE>
+  <P class=3DBody>None of these comments add anything to the =
+comprehension of the=20
+  code. Each comment simply restates the line of code, which in most =
+cases is=20
+  self-explanatory.=20
+  <P class=3DBody>Avoid adding comments simply so that you can say, =
+"Yes, I=20
+  documented my code!" Rely as much as possible on the structure and =
+layout of=20
+  the code itself to express the meaning of the program. Reserve your =
+comments=20
+  to explain the Why of your code: What business rule is it meant to =
+implement?=20
+  Why did you need to implement a certain requirement in a certain way?=20
+  <P class=3DBody>In addition, use comments to translate internal,=20
+  computer-language terminology into something meaningful for the =
+application.=20
+  Suppose you are using Oracle Forms GLOBAL variables to keep track of a =
+list of=20
+  names entered. Does the following comment explain the purpose of the =
+code or=20
+  simply restate what the code is doing? <PRE><CODE =
+class=3DCodeIndent>/* Set the number of elements to zero. */</CODE>
+<CODE class=3DCodeIndent>:GLOBAL.num_elements :=3D 0;</CODE>
+</PRE>
+  <P class=3DBody>Once again, the comment adds no value. Does the next =
+comment=20
+  offer additional information? <PRE><CODE class=3DCodeIndent>/* Empty =
+the list of names. */</CODE>
+<CODE class=3DCodeIndent>:GLOBAL.num_elements :=3D 0;</CODE>
+</PRE>
+  <P class=3DBody>This comment actually explains the purpose of the =
+assignment of=20
+  the global to zero. By setting the number of elements to zero, I will =
+have=20
+  effectively emptied the list. This comment has translated the =
+"computer lingo"=20
+  into a description of the effect of the statement. Of course, you =
+would be=20
+  even better off hiding the fact that you use this particular global =
+variable=20
+  to empty a list and instead build a procedure as follows:=20
+  <P class=3DCodeIndentKeep>PROCEDURE empty_list IS=20
+  <P class=3DCodeIndentKeep>BEGIN=20
+  <P class=3DCodeIndentKeep>:GLOBAL.num_elements :=3D 0; <PRE><CODE =
+class=3DCodeIndent>END;</CODE>
+</PRE>
+  <P class=3DBody>Then to empty a list you would not need any comment at =
+all. You=20
+  could simply include the statement: <PRE><CODE =
+class=3DCodeIndent>empty_list;</CODE>
+</PRE>
+  <P class=3DBody>and the meaning would be perfectly clear.=20
+  <H3 class=3DHeadB>Make Comments Easy to Enter and Maintain</H3>
+  <P class=3DBody>You shouldn't spend a lot of time formatting your =
+comments. You=20
+  need to develop a style that is clean and easy to read, but also easy =
+to=20
+  maintain. When you have to change a comment, you shouldn't have to =
+reformat=20
+  every line in the comment. Lots of fancy formatting is a good =
+indication that=20
+  you have a high-maintenance documentation style. The following block =
+comment=20
+  is a maintenance nightmare: <PRE><CODE class=3DCodeIndent>/*</CODE>
+<CODE =
+class=3DCodeIndent>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D</CODE>
+<CODE class=3DCodeIndent>| Parameter          Description                =
+          |</CODE>
+<CODE class=3DCodeIndent>|                                               =
+          |</CODE>
+<CODE class=3DCodeIndent>| company_id         The primary key to company =
+          |</CODE>
+<CODE class=3DCodeIndent>| start_date         Start date used for date =
+range       |</CODE>
+<CODE class=3DCodeIndent>| end_date           End date for date range    =
+          |</CODE>
+<CODE =
+class=3DCodeIndent>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D</CODE>
+<CODE class=3DCodeIndent>*/</CODE>
+</PRE>
+  <P class=3DBody>The right-justified vertical lines and column =
+formatting for the=20
+  parameters require way too much effort to enter and maintain. What =
+happens if=20
+  you add a parameter with a very long name? What if you need to write a =
+longer=20
+  description? A simpler and more maintainable version of this comment =
+might be:=20
+<PRE><CODE class=3DCodeIndent>/*</CODE>
+<CODE =
+class=3DCodeIndent>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D</CODE>
+<CODE class=3DCodeIndent>| Parameter - Description               </CODE>
+<CODE class=3DCodeIndent>|                                               =
+          </CODE>
+<CODE class=3DCodeIndent>| company_id - The primary key to company =
+</CODE>
+<CODE class=3DCodeIndent>| start_date - Start date used for date range =
+</CODE>
+<CODE class=3DCodeIndent>| end_date - End date for date range       =
+</CODE>
+<CODE =
+class=3DCodeIndent>=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D</CODE>
+<CODE class=3DCodeIndent>*/</CODE>
+</PRE>
+  <P class=3DBodyKeep>I like to use the following format for my block =
+comments: <PRE><CODE class=3DCodeIndent>/*</CODE>
+<CODE class=3DCodeIndent>|| I put the slash-asterisk that starts the =
+comment on a line all by</CODE>
+<CODE class=3DCodeIndent>|| itself. Then I start each line in the =
+comment block with a double</CODE>
+</PRE>
+  <P class=3DCodeIndentKeep>|| vertical bar to highlight the presence of =
+the=20
+  comment. Finally,=20
+  <P class=3DCodeIndentKeep>|| I place the asterisk-slash on a line all =
+by itself.=20
+<PRE><CODE class=3DCodeIndent>*/</CODE>
+</PRE>
+  <P class=3DBody>On the negative side, the vertical bars have to be =
+erased=20
+  whenever I reformat the lines, but that isn't too much of an effort. =
+On the=20
+  positive side, those vertical bars make it very easy for a programmer =
+who is=20
+  scanning the left side of the code to pick out the comments.=20
+  <P class=3DBody>I put the comment markers on their own lines to =
+increase the=20
+  whitespace in my program and set off the comment. That way I can avoid =
+"heavy"=20
+  horizontal lines full of delimiters, such as asterisks or dashes, and =
+avoid=20
+  having to match the longest line in the comment.=20
+  <H3 class=3DHeadB>Maintain Indentation</H3>
+  <P class=3DBody>Inline commentary should reinforce the indentation and =
+therefore=20
+  the logical structure of the program. For example, it is very easy to =
+find the=20
+  comments in the make_array procedures shown below. I do not use any=20
+  double-hyphens, so the slash-asterisk sequences stand out nicely. In =
+addition,=20
+  all comments start in the first column, so I can easily scan down the=20
+  left-hand side of the program and pick out the documentation: =
+<PRE><CODE class=3DCodeIndent>PROCEDURE make_array (num_rows_in IN =
+INTEGER) </CODE>
+<CODE class=3DCodeIndent>/* Create an array of specified numbers of rows =
+*/</CODE>
+<CODE class=3DCodeIndent>IS</CODE>
+<CODE class=3DCodeIndent>/* Handles to Oracle Forms structures */</CODE>
+<CODE class=3DCodeIndent>   col_id GROUPCOLUMN;</CODE>
+<CODE class=3DCodeIndent>   rg_id RECORDGROUP;</CODE>
+<CODE class=3DCodeIndent>BEGIN</CODE>
+<CODE class=3DCodeIndent>/* Create new record group and column */</CODE>
+<CODE class=3DCodeIndent>   rg_id :=3D CREATE_GROUP ('array');</CODE>
+<CODE class=3DCodeIndent>   col_id :=3D ADD_GROUP_COLUMN ('col');</CODE>
+<CODE class=3DCodeIndent>/* </CODE>
+<CODE class=3DCodeIndent>|| Use a loop to create the specified number of =
+rows and </CODE>
+<CODE class=3DCodeIndent>|| set the value in each cell.</CODE>
+<CODE class=3DCodeIndent>*/</CODE>
+<CODE class=3DCodeIndent>   FOR row_index IN 1 .. num_rows_in</CODE>
+<CODE class=3DCodeIndent>   LOOP</CODE>
+<CODE class=3DCodeIndent>/* Create a row at the end of the group to =
+accept data */</CODE>
+<CODE class=3DCodeIndent>      ADD_GROUP_ROW (return_value, =
+END_OF_GROUP);</CODE>
+<CODE class=3DCodeIndent>      FOR col_index IN 1 .. =
+num_columns_in</CODE>
+<CODE class=3DCodeIndent>      LOOP</CODE>
+<CODE class=3DCodeIndent>/* Set the initial value in the cell */</CODE>
+<CODE class=3DCodeIndent>         SET_GROUP_NUMBER_CELL (col_id, =
+row_index, 0); </CODE>
+</PRE>
+  <P class=3DCodeIndentKeep>END LOOP; <PRE><CODE class=3DCodeIndent>   =
+END LOOP;</CODE>
+<CODE class=3DCodeIndent>END;</CODE>
+</PRE>
+  <P class=3DBody>The problem with these comments is precisely that they =
+do all=20
+  start in the first column, regardless of the code they describe. The =
+most=20
+  glaring example of this formatting "disconnect" comes in the inner =
+loop,=20
+  repeated below: <PRE><CODE class=3DCodeIndent>      FOR col_index IN 1 =
+.. num_columns_in</CODE>
+<CODE class=3DCodeIndent>      LOOP</CODE>
+<CODE class=3DCodeIndent>/* Set the initial value in the cell */</CODE>
+<CODE class=3DCodeIndent>         SET_GROUP_NUMBER_CELL (col_id, =
+row_index, 0); </CODE>
+<CODE class=3DCodeIndent>      END LOOP;</CODE>
+</PRE>
+  <P class=3DBody>Your eye follows the three-space indentation very =
+smoothly into=20
+  the loop and then you are forced to move all the way to the left to =
+pick up=20
+  the comment. This format disrupts your reading of the code and =
+therefore its=20
+  readability. The code loses some of its ability to communicate the =
+logical=20
+  flow "at a glance," because the physical sense of indentation as =
+logical flow=20
+  is marred by the comments. Finally, you may end up writing full-line =
+comments=20
+  which are much longer than the code they appear next to, further =
+distorting=20
+  the code.=20
+  <P class=3DBody>Your comments should always be indented at the same =
+level as the=20
+  code which they describe. Assuming the comments come before the code =
+itself,=20
+  those lines of descriptive text will initiate the indentation at that =
+logical=20
+  level, which will also reinforce that structure. The make_array =
+procedure,=20
+  properly indented, is shown below: <PRE><CODE =
+class=3DCodeIndent>PROCEDURE make_array (num_rows_in IN INTEGER) </CODE>
+<CODE class=3DCodeIndent>/* Create an array of specified numbers of rows =
+*/</CODE>
+<CODE class=3DCodeIndent>IS</CODE>
+<CODE class=3DCodeIndent>   /* Handles to Oracle Forms structures =
+*/</CODE>
+<CODE class=3DCodeIndent>   col_id GROUPCOLUMN;</CODE>
+<CODE class=3DCodeIndent>   rg_id RECORDGROUP;</CODE>
+<CODE class=3DCodeIndent>BEGIN</CODE>
+<CODE class=3DCodeIndent>   /* Create new record group and column =
+*/</CODE>
+<CODE class=3DCodeIndent>   rg_id :=3D CREATE_GROUP ('array');</CODE>
+<CODE class=3DCodeIndent>   col_id :=3D ADD_GROUP_COLUMN ('col');</CODE>
+<CODE class=3DCodeIndent>   /* </CODE>
+<CODE class=3DCodeIndent>   || Use a loop to create the specified number =
+of rows and </CODE>
+<CODE class=3DCodeIndent>   || set the value in each cell.</CODE>
+<CODE class=3DCodeIndent>   */</CODE>
+<CODE class=3DCodeIndent>   FOR row_index IN 1 .. num_rows_in</CODE>
+<CODE class=3DCodeIndent>   LOOP</CODE>
+<CODE class=3DCodeIndent>      /* Create a row at the end of the group =
+to accept data */</CODE>
+<CODE class=3DCodeIndent>      ADD_GROUP_ROW (return_value, =
+END_OF_GROUP);</CODE>
+<CODE class=3DCodeIndent>      FOR col_index IN 1 .. =
+num_columns_in</CODE>
+<CODE class=3DCodeIndent>      LOOP</CODE>
+<CODE class=3DCodeIndent>         /* Set the initial value in the cell =
+*/</CODE>
+<CODE class=3DCodeIndent>         SET_GROUP_NUMBER_CELL (col_id, =
+row_index, 0); </CODE>
+</PRE>
+  <P class=3DCodeIndentKeep>END LOOP;=20
+  <P class=3DCodeIndentKeep>END LOOP; <PRE><CODE =
+class=3DCodeIndent>END;</CODE>
+</PRE>
+  <H3 class=3DHeadB>Comment Declaration Statements</H3>
+  <P class=3DBodyKeep>I propose the following simple rule for =
+documenting=20
+  declaration statements:=20
+  <BLOCKQUOTE class=3DListSimple><EM class=3DEmphasis>Provide a comment =
+for each=20
+    and every declaration</EM>.</BLOCKQUOTE>
+  <P class=3DBody>Does that sound excessive? Well, I must admit that I =
+do not=20
+  follow this guideline at all times, but I bet people who read my code =
+wish I=20
+  had. The declaration of a variable which seems to me to be perfectly =
+clear may=20
+  be a source of abiding confusion for others. Like many other people, I =
+still=20
+  have difficulty understanding that what is obvious to me is not =
+necessarily=20
+  obvious to someone else. </P>
+  <P class=3DBody>Consider the declaration section in the next example. =
+The=20
+  commenting style is inconsistent. I use double-hyphens for a two-line =
+comment;=20
+  then I use the standard block format to provide information about =
+three=20
+  variables all at once. I provide comments for some variables, but not =
+for=20
+  others. It's hard to make sense of the various declaration =
+statements:</P><PRE><CODE class=3DCodeIndent>DECLARE</CODE>
+<CODE class=3DCodeIndent>   -- Assume a maximum string length of 1000 =
+for a line of text.</CODE>
+<CODE class=3DCodeIndent>   text_line VARCHAR2 (1000);</CODE>
+<CODE class=3DCodeIndent>   len_text    NUMBER;</CODE>
+<CODE class=3DCodeIndent>   /*</CODE>
+<CODE class=3DCodeIndent>   || Variables used to keep track of string =
+scan:</CODE>
+<CODE class=3DCodeIndent>   ||    atomic_count - running count of =
+atomics scanned.</CODE>
+<CODE class=3DCodeIndent>   ||    still_scanning - Boolean variable =
+controls WHILE loop.</CODE>
+<CODE class=3DCodeIndent>   */</CODE>
+<CODE class=3DCodeIndent>   atomic_count NUMBER :=3D 1;</CODE>
+<CODE class=3DCodeIndent>   still_scanning BOOLEAN;</CODE>
+<CODE class=3DCodeIndent>BEGIN</CODE>
+</PRE>
+  <P class=3DBody>Let's recast this declaration section using my =
+proposed=20
+  guideline: a comment for each declaration statement. In the result =
+shown=20
+  below, the declaration section is now longer than the first version, =
+but it=20
+  uses whitespace more effectively. Each declaration has its own =
+comment, set=20
+  off by a blank line if a single-line comment:</P><PRE><CODE =
+class=3DCodeIndent>DECLARE</CODE>
+<CODE class=3DCodeIndent>   /* Assume a maximum string length of 1000 =
+for a line of text. */</CODE>
+<CODE class=3DCodeIndent>   text_line VARCHAR2 (1000);</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /* Calculate length of string at time of =
+declaration */</CODE>
+<CODE class=3DCodeIndent>   len_string NUMBER;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /* Running count of number of atomics =
+scanned */</CODE>
+<CODE class=3DCodeIndent>   atomic_count NUMBER :=3D 1;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /* Boolean variable that controls WHILE loop =
+*/</CODE>
+<CODE class=3DCodeIndent>   still_scanning BOOLEAN ;</CODE>
+<CODE class=3DCodeIndent>BEGIN</CODE>
+</PRE>
+  <H2 class=3DHeadA><A name=3D60935></A>Documenting the Entire =
+Package</H2>
+  <P class=3DBody>A package is often a complicated and long construct. =
+It is=20
+  composed of many different types of objects, any of which may be =
+public=20
+  (visible to programs and users outside of the package) or private =
+(available=20
+  only to other objects in the package). Package structure is described =
+in more=20
+  detail in Chapter 16, <EM class=3DChapterTitle>Packages</EM>.</P>
+  <P class=3DBody>You can use some very simple documentation guidelines =
+to clarify=20
+  the structure of the package. </P>
+  <P class=3DBody>As usual when discussing packages, one must consider =
+the=20
+  specification separately from the body. As a meta-module or grouping =
+of=20
+  modules, the specification should have a standard header. This header =
+needn't=20
+  be as complicated as that of a specific module, because you do not =
+want to=20
+  repeat in the package header any information which also belongs in =
+specific=20
+  modules. I suggest using the template header shown in the following =
+example.=20
+  In the "Major Modifications" section of the header, do not include =
+every=20
+  change made to every object in the package. Instead note significant =
+changes=20
+  to the package as a whole, such as an expansion of scope, a change in =
+the way=20
+  the package and global variables are managed, etc. Place this header =
+after the=20
+  package name and before the IS statement:</P><PRE><CODE =
+class=3DCodeIndent>PACKAGE package_name</CODE>
+<CODE class=3DCodeIndent>/*</CODE>
+<CODE class=3DCodeIndent>|| Author:</CODE>
+<CODE class=3DCodeIndent>||</CODE>
+<CODE class=3DCodeIndent>|| Overview:</CODE>
+<CODE class=3DCodeIndent>||</CODE>
+<CODE class=3DCodeIndent>|| Major Modifications (when, who, what)</CODE>
+<CODE class=3DCodeIndent>||</CODE>
+<CODE class=3DCodeIndent>*/</CODE>
+<CODE class=3DCodeIndent>IS</CODE>
+<CODE class=3DCodeIndent>   ...</CODE>
+<CODE class=3DCodeIndent>END package_name;</CODE>
+</PRE>
+  <H3 class=3DHeadB>Document the Package Specification</H3>
+  <P class=3DBody>The package specification is, in essence, a series of=20
+  declaration statements. Some of those statements declare variables, =
+while=20
+  others declare modules. Follow the same recommendation in commenting a =
+package=20
+  as you do in commenting a module's declaration section: provide a =
+comment for=20
+  each declaration. In addition to the comments for a specific =
+declaration, you=20
+  may also find it useful to provide a banner before a group of related=20
+  declarations to make that connection obvious to the reader. </P>
+  <P class=3DBody>Surround the banner with whitespace (blank lines for =
+the=20
+  start/end of a multiline comment block). While you can use many =
+different=20
+  formats for this banner, use the simplest possible design that gets =
+the point=20
+  across. Everything else is clutter.</P>
+  <P class=3DBodyKeep>The package specification below illustrates the =
+header and=20
+  declaration-level comment styles, as well as group =
+banners:</P><PRE><CODE class=3DCodeIndent>PACKAGE rg_select</CODE>
+<CODE class=3DCodeIndent>/*</CODE>
+<CODE class=3DCodeIndent>|| Author: Steven Feuerstein, x3194</CODE>
+<CODE class=3DCodeIndent>||</CODE>
+<CODE class=3DCodeIndent>|| Overview: Manage a list of selected items =
+correlated with a </CODE>
+<CODE class=3DCodeIndent>||    block on the screen.</CODE>
+<CODE class=3DCodeIndent>||</CODE>
+<CODE class=3DCodeIndent>|| Major Modifications (when, who, what)</CODE>
+<CODE class=3DCodeIndent>||    12/94 - SEF - Create package</CODE>
+<CODE class=3DCodeIndent>||    3/95  - JRC - Enhance to support =
+coordinated blocks</CODE>
+<CODE class=3DCodeIndent>||</CODE>
+<CODE class=3DCodeIndent>*/</CODE>
+<CODE class=3DCodeIndent>IS</CODE>
+<CODE class=3DCodeIndent>   /*----------------- Modules to Define the =
+List -------------------*/</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /* Initialize the list/record group. =
+*/</CODE>
+<CODE class=3DCodeIndent>   PROCEDURE init_list (item_name_in IN =
+VARCHAR2);</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /* Delete the list */</CODE>
+<CODE class=3DCodeIndent>   PROCEDURE delete_list;</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /*------------------ Modules to Manage Item =
+Selections -----------*/</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /* Mark item as selected */</CODE>
+<CODE class=3DCodeIndent>   PROCEDURE select_item (row_in IN =
+INTEGER);</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /* De-select the item from the list =
+*/</CODE>
+<CODE class=3DCodeIndent>   PROCEDURE deselect_item (row_in IN =
+INTEGER);</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>END rg_select;</CODE>
+</PRE>
+  <H3 class=3DHeadB>Document the Package Body</H3>
+  <P class=3DBody>The body is even longer and more complex than the =
+specification.=20
+  The specification contains only declarations, and only the =
+declarations of=20
+  public or global objects. The body contains the declarations of all =
+private=20
+  variables, cursors, types, etc., as well as the implementation of all =
+cursors=20
+  and modules. My suggestion for commenting declarations in the package =
+body is,=20
+  again, to provide a single line (or more) for each declaration, =
+separated by=20
+  whitespace. This takes more space, but is very legible. </P>
+  <P class=3DBody>Once you get beyond the variables, use banners for any =
+and all=20
+  of the following:</P>
+  <UL>
+    <LI class=3DListBullet>The private modules of the package. These =
+should come=20
+    after the package variable declarations, but before the public =
+module=20
+    implementations. The banner alerts a reader to the fact that these =
+modules=20
+    were not in the specification.=20
+    <P></P>
+    <LI class=3DListBullet>The public modules of the package. The =
+package=20
+    specification describes only the interface to these modules. The =
+body=20
+    contains the full code for those modules. Use a banner to let the =
+reader=20
+    know that you are done with variables and private modules.=20
+    <P></P>
+    <LI class=3DListBullet>Groups of related modules, particularly those =
+with the=20
+    same, overloaded name. (Overloading occurs when you create multiple =
+modules=20
+    with the same name but different parameter lists.)=20
+    <P></P></LI></UL>
+  <P class=3DBodyKeep>The banners for a package body are shown =
+below:</P><PRE><CODE class=3DCodeIndent>PACKAGE BODY package_name =
+</CODE>
+<CODE class=3DCodeIndent>IS</CODE>
+<CODE class=3DCodeIndent>   /*----------------------- Package Variables =
+----------------------*/</CODE>
+<CODE class=3DCodeIndent>   ... declarations placed here</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /*----------------------- Private Modules =
+------------------------*/</CODE>
+<CODE class=3DCodeIndent>   FUNCTION ...</CODE>
+<CODE class=3DCodeIndent>   PROCEDURE ...</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>   /*----------------------- Public Modules =
+-------------------------*/</CODE>
+<CODE class=3DCodeIndent>   FUNCTION ...</CODE>
+<CODE class=3DCodeIndent>   PROCEDURE ...</CODE>
+<CODE class=3DCodeIndent>&nbsp;</CODE>
+<CODE class=3DCodeIndent>END package_name;</CODE>
+</PRE>
+  <P class=3DBody>Whether in a package or an individual module, make =
+sure that=20
+  your comments add value to the code. Do not repeat what the code =
+itself=20
+  clearly states. When dealing with a structure as complicated as a =
+package,=20
+  however, you need comments which focus on communicating that =
+structure. If=20
+  your package has more than a handful of modules, and especially if it =
+uses=20
+  both private and public modules, you should make sure to use these =
+banners to=20
+  keep the reader fully informed about the context of the code they are =
+reading=20
+  in the package.</P>
+  <HR>
+
+  <P class=3DFootnote><A name=3Dfootnote-1></A>1. I recognize, however, =
+that many=20
+  developers I respect greatly for their code quality and elegance =
+differ with=20
+  me strongly on this point.</P></BLOCKQUOTE><!-- End of sample chapter =
+-->
+<P><B>Back to: <A=20
+href=3D"http://oreilly.com/catalog/oraclep2/noframes.html">Oracle PL/SQL =
+
+Programming, 2nd Edition</A></B> <!-- O'Reilly Footer Begins Here -->
+<CENTER>
+<HR noShade SIZE=3D1>
+<FONT face=3D"Verdana, Arial, Helvetica" size=3D1><A=20
+href=3D"http://www.oreilly.com/"><B>O'Reilly&nbsp;Home</B></A> <B>| =
+</B><A=20
+href=3D"http://www.oreilly.com/sales/bookstores"><B>O'Reilly&nbsp;Booksto=
+res</B></A>=20
+<B>| </B><A=20
+href=3D"http://www.oreilly.com/order_new/"><B>How&nbsp;to&nbsp;Order</B><=
+/A> <B>|=20
+</B><A=20
+href=3D"http://www.oreilly.com/oreilly/contact.html"><B>O'Reilly&nbsp;Con=
+tacts<BR></B></A><A=20
+href=3D"http://www.oreilly.com/international/"><B>International</B></A> =
+<B>|=20
+</B><A=20
+href=3D"http://www.oreilly.com/oreilly/about.html"><B>About&nbsp;O'Reilly=
+</B></A>=20
+<B>| </B><A=20
+href=3D"http://www.oreilly.com/affiliates.html"><B>Affiliated&nbsp;Compan=
+ies</B></A>
+<P><EM>=A9 2001, O'Reilly &amp; Associates, Inc.</EM><BR><A=20
+href=3D"mailto:webmaster@oreilly.com"><I>webmaster@oreilly.com</I></A>=20
+</FONT></CENTER><!-- O'Reilly Footer Ends Here --></P></BODY></HTML>
+
+------=_NextPart_000_0000_01C98D22.4CE377B0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://oreilly.com/graphics_new/catalog_header_buttons.gif
+
+R0lGODlhAwIlALMAAP///xgYGEJCQmNjY3t7e5ycnL29ve/v7+e1tdaUlMZra60xMaUYGJwAAMYY
+SgAAACwAAAAAAwIlAAAE/xDISau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqP
+yKRyyWw6n9CodEqtWq/YrHbL7Xq/4LB4nDsYzgeAGT0pEAzqsyG9BpzVbviaLbnfzXtpdnJraXck
+BgQDiwWCFQgICYIFlJRzF5WZlX2UEgedGIlwEweMGAeKBQADBG8EZLCxXAYPtQ8FtLaqArZvtre0
+AgC1ALy1rb+vEsS1iQ+5tQPDvQUPvtIiBQG/tgKOEg4NDQnL3A/YFOa/aQO1aQTEGLwBFe23F9vP
+AAQFAwL0sgIKlBKsWoCCD7wlPPDgYEKDwaYxVHgQnrVR06axetZsG0Nrb/8ABAjQDuMHY7UC/Pul
+aoIDBgwQlGuYr2GFmubexav2IEM7gBTymSx2TAIlAippHFAgCwHTgVBNRGyWcJiAqRyFUdWadZ+y
+eBOYNYSXi2guNvCShkDZ0pPFe+BgypzW1p4yCduAWrBoFKyFnxY+9mxTS5inA4i/kVLAmPECciIS
+MBBHQcE4G04bK1iw4GkLyw0WRB09gtbIhKZ54aq6dRrWiOkGh+3ZjWNPXtCsqanV1oNFvRSgOTrQ
+YC7v2Ibx2sTAFwBPn8sr8DQMzcPS4hQQwIQMAjQFcaJnIFjQwLMay4pVkA9Pun2H1APM0LzIumvr
+1of8ZkwolBjuYyHlclf/Bx8BV0EuySXQgCDHTZBXUNHttZN+FAB2gUWv2JLeBQdMNld24nDnAQKU
+TeDUhiyQeFkFHX64gQIuvhiaezRuAJsdC6FW32s71ldOBcwIYE9Z/8m2Ck0gDLmBkuFw12A5yYkU
+YQXNPYeBhRfYY8tQGayHAWgxoiiBihyIOQJxM3Jo5gQKxqiBZezVKGdwVfXBGkXVXNVQO3g2xFAA
+Bv0Ym1VnHeNRYQI0khA8vW2QEgcCAiBJbHU9KaWBE1RJ4QRYXsDWiCGeIg4DiyGw1GQMiEhmdtwt
+ZaoCqIo4pmYKiEneii8y1kBMnoDWmCCZkWcenBUk0FhnijnVGWcJQLLm/5wE1YmjVvS8tVpKcPym
+ij2ACjqbVVJC020yZE30QWFlRnOBLaehC6E6AGlqZD1TsqiuB6DZKo5MkpXXGayhjlnieeVJ0O9m
+jE2GKwCWcQfrhmg2UCYD4RELgFPi/Copdmh+aLEED09AHncKkirBrY9BOxAgGbDsCZc+uOvoOeua
+M6By8EogL3SYQtioBgq/mfHGoTkyGXurHnDrUwoWPcHRbBYsstTFgsdBwyCnKcG+pOw6AddZs2eZ
+ix1vjWvTKqfNhMwtF2VBYQUYE6VyB2kyys5X1gskXB2II3EGvp5MNcNaryrBZJ4JW5nWo3K2gMJx
+TgBa5Bco4LDWAIB9nv8jmluMpgWWMaXih6OrbfoRxqxp0c902Tnlg8xNOG+FelP6gd9iggaZ4pIX
+PjAAvAM/uMUqygq41d1hrjmLnaepIOVoFx/1gqdXPwRP6GBgi/Z8Iwhhz/vIzvPMrGNwq5tTUy/8
+sL7/LXjiw6cJpnV+f2Csl19jx6Ku+hNeMeYC+1vwQmc9HySiJXK4RCHiwAdUEIAOc6hDHxJYBzRQ
+kAJuaIscBkGIBfIBDw90SwhBkI/yEUU3NeuNMdoCuwuJL2/gK4cJLdA081QAeetbHNJ+F7zg+S9r
+C9vA+TgwHnJ8LHP9A9kC0tC8/5kMRH9TWnkwZsMC4oAn9SkKT1TxlgD/IKYmzvBFcrjBoy1lqhsS
+4IUwUPKMLZrFE2DMDcwyAI2bpfFR3GvU9uiWAbxlSVp5BIHCNlS69+nQRDykmg+Jh0MiNpICxrqY
+1I64PPSYzWNpUpFiCHiezkDCij7gBSps04psFQUeG+GHNaqRyhsRQI1idM1YRiilA4hyGg/4xE8e
+iKE3OmeV52gHJWgGAiwG4A0G6Ae7xGSpXxIzL5pwg04Gs0VNhOQn0QyJDEGgoioCYDIiWmT7KNDD
++LFHYbISU9PcRByZcBJ/l+za3wr5Q0NSwEOSDCIod9COAaChGZcQgECFAQ9fIIOXbjgHPKJU0GkV
+6iqX+JE0aUGWaaVx/6C+LGgwcIOKGYZCHWjUQDNPqAqccGNbslPHGkGKwmnYcQMdGhzhZCXOHbov
+h/YMGyIzRgfLaWCdFSCPTMgTk83syimHm1EkummsjDWrnmrAZ9bg5ze/LQB9+4yBAfICh2RYhRfh
+G4kXG6qzXzBUN7mxTTO+dcZqvAI2CQErbsoqRty0wqMZiNsvVDJHnwVmJGsUq2BHYkqAGGSwI5EG
+UhC7jbb8A68XSACzIoGs7NyqaFIEj1MUxgAYXfYxn0XMZ+dyHatilQKnslwkYMI08CAGVXNpWnnS
+oDCm1DCzoSEtrJq126BWtaqnzaoLDDCPj5SSomRJyzbCuIaF8okCDf81jUWkS0tioAGsVYkIcp8x
+1/DV1TZzE252TEUEZ4XgAJBwE3k9Eab1qsFF7tWAeVG7GdTWULw0eKVZwPIWkADzoMHQKCCj26Pw
++ucZNaFHRPr7Sn14d6PPuBF+JzwCqS7uWRQugWpEiShlLkKh9FGlAFAp4LO+tUcquYqDbrHcsXgk
+Iv3spxoTlaeCtgMZ4c2wjjUwNNSmascv2Kq6krGN3RyTPt4wxliRDF209siMfTmGW8O3GmEU+U8o
+eYWSzZAXtQD5yxho2mMgwZjggrkEES1NX0/gMjabJM1njvMjGhNfOdv5znjOs573zOc+C/e3gA60
+oAdN6EIb+tCITrQuohfN6EY7+tGQjrSkJ03pSlv60pjOdKL9zOlOe/rToA61qEdN6lKb+tSovkIE
+AAA7
+
+------=_NextPart_000_0000_01C98D22.4CE377B0
+Content-Type: image/gif
+Content-Transfer-Encoding: base64
+Content-Location: http://oreilly.com/catalog/covers/oraclep2.s.gif
+
+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
+
+------=_NextPart_000_0000_01C98D22.4CE377B0--

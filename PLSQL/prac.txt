@@ -1,0 +1,705 @@
+
+SQL> create table student(regno char(10) primary key,name char(20),sub1 number(3),
+  2  sub2 number(3),sub3 number(3));
+
+Table created.
+
+SQL> desc stu;
+ERROR:
+ORA-04043: object stu does not exist
+
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+
+SQL> insert into student values('&regno','&name',&sub1,&sub2,&sub3);
+Enter value for regno: a1
+Enter value for name: amal
+Enter value for sub1: 33
+Enter value for sub2: 44
+Enter value for sub3: 55
+old   1: insert into student values('&regno','&name',&sub1,&sub2,&sub3)
+new   1: insert into student values('a1','amal',33,44,55)
+
+1 row created.
+
+SQL> /
+Enter value for regno: a2
+Enter value for name: patol
+Enter value for sub1: 87
+Enter value for sub2: 88
+Enter value for sub3: 97
+old   1: insert into student values('&regno','&name',&sub1,&sub2,&sub3)
+new   1: insert into student values('a2','patol',87,88,97)
+
+1 row created.
+
+SQL> /
+Enter value for regno: a3
+Enter value for name: wahed islam
+Enter value for sub1: 65
+Enter value for sub2: 67
+Enter value for sub3: 86
+old   1: insert into student values('&regno','&name',&sub1,&sub2,&sub3)
+new   1: insert into student values('a3','wahed islam',65,67,86)
+
+1 row created.
+
+SQL> /
+Enter value for regno: a4
+Enter value for name: ahooja
+Enter value for sub1: 11
+Enter value for sub2: 22
+Enter value for sub3: 33
+old   1: insert into student values('&regno','&name',&sub1,&sub2,&sub3)
+new   1: insert into student values('a4','ahooja',11,22,33)
+
+1 row created.
+
+SQL> /
+Enter value for regno: a5
+Enter value for name: debu
+Enter value for sub1: 66
+Enter value for sub2: 77
+Enter value for sub3: 88
+old   1: insert into student values('&regno','&name',&sub1,&sub2,&sub3)
+new   1: insert into student values('a5','debu',66,77,88)
+
+1 row created.
+
+SQL> /
+Enter value for regno: a6
+Enter value for name: china
+Enter value for sub1: 54
+Enter value for sub2: 45
+Enter value for sub3: 61
+old   1: insert into student values('&regno','&name',&sub1,&sub2,&sub3)
+new   1: insert into student values('a6','china',54,45,61)
+
+1 row created.
+
+SQL> select * from student;
+
+REGNO      NAME                       SUB1       SUB2       SUB3
+---------- -------------------- ---------- ---------- ----------
+a1         amal                         33         44         55
+a2         patol                        87         88         97
+a3         wahed islam                  65         67         86
+a4         ahooja                       11         22         33
+a5         debu                         66         77         88
+a6         china                        54         45         61
+
+6 rows selected.
+
+SQL> select regno,name from student;
+
+REGNO      NAME
+---------- --------------------
+a1         amal
+a2         patol
+a3         wahed islam
+a4         ahooja
+a5         debu
+a6         china
+
+6 rows selected.
+
+SQL> select regno,name sub1+sub2+sub3 from student;
+select regno,name sub1+sub2+sub3 from student
+                      *
+ERROR at line 1:
+ORA-00923: FROM keyword not found where expected
+
+
+SQL> select regno,name,sub1+sub2+sub3 from student;
+
+REGNO      NAME                 SUB1+SUB2+SUB3
+---------- -------------------- --------------
+a1         amal                            132
+a2         patol                           272
+a3         wahed islam                     218
+a4         ahooja                           66
+a5         debu                            231
+a6         china                           160
+
+6 rows selected.
+
+SQL> select regno,name,sub1+sub2+sub3 "Total" from student;
+
+REGNO      NAME                      Total
+---------- -------------------- ----------
+a1         amal                        132
+a2         patol                       272
+a3
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+
+SQL> alter table student
+  2  add total number(3);
+
+Table altered.
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+ TOTAL                                              NUMBER(3)
+
+SQL> alter table student
+  2  add avgr number(6,2);
+
+Table altered.
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+
+SQL> alter table student
+  2  add grd char(10);
+
+Table altered.
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+
+SQL> select * from student;
+
+REGNO      NAME                       SUB1       SUB2       SUB3      TOTAL
+---------- -------------------- ---------- ---------- ---------- ----------
+      AVGR GRD
+---------- ----------
+a1         amal                         33         44         55
+
+
+a2         patol                        87         88         97
+
+
+a3         wahed islam                  65         67         86
+
+
+
+REGNO      NAME                       SUB1       SUB2       SUB3      TOTAL
+---------- -------------------- ---------- ---------- ---------- ----------
+      AVGR GRD
+---------- ----------
+a4         ahooja                       11         22         33
+
+
+a5         debu                         66         77         88
+
+
+a6         china                        54         45         61
+
+
+
+6 rows selected.
+
+SQL> select regno,sub1,sub2,sub3,total,avgr,grd from student;
+
+REGNO            SUB1       SUB2       SUB3      TOTAL       AVGR GRD
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+a1                 33         44         55
+a2                 87         88         97
+a3                 65         67         86
+a4                 11         22         33
+a5                 66         77         88
+a6                 54         45         61
+
+6 rows selected.
+
+SQL> update student set total=sub1+sub2+sub3;
+
+6 rows updated.
+
+SQL> select regno,sub1,sub2,sub3,total,avgr,grd from student;
+
+REGNO            SUB1       SUB2       SUB3      TOTAL       AVGR GRD
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+a1                 33         44         55        132
+a2                 87         88         97        272
+a3                 65         67         86        218
+a4                 11         22         33         66
+a5                 66         77         88        231
+a6                 54         45         61        160
+
+6 rows selected.
+
+SQL> update student set avgr=total/3;
+
+6 rows updated.
+
+SQL> select regno,sub1,sub2,sub3,total,avgr,grd from student;
+
+REGNO            SUB1       SUB2       SUB3      TOTAL       AVGR GRD
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+a1                 33         44         55        132         44
+a2                 87         88         97        272      90.67
+a3                 65         67         86        218      72.67
+a4                 11         22         33         66         22
+a5                 66         77         88        231         77
+a6                 54         45         61        160      53.33
+
+6 rows selected.
+
+SQL> update student set grd='*(1st)' where avgr>=75;
+
+2 rows updated.
+
+SQL> select regno,sub1,sub2,sub3,total,avgr,grd from student;
+
+REGNO            SUB1       SUB2       SUB3      TOTAL       AVGR GRD
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+a1                 33         44         55        132         44
+a2                 87         88         97        272      90.67 *(1st)
+a3                 65         67         86        218      72.67
+a4                 11         22         33         66         22
+a5                 66         77         88        231         77 *(1st)
+a6                 54         45         61        160      53.33
+
+6 rows selected.
+
+SQL> update student set grd='1st' where avgr>=60 and avgr<75;
+
+1 row updated.
+
+SQL> select regno,sub1,sub2,sub3,total,avgr,grd from student;
+
+REGNO            SUB1       SUB2       SUB3      TOTAL       AVGR GRD
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+a1                 33         44         55        132         44
+a2                 87         88         97        272      90.67 *(1st)
+a3                 65         67         86        218      72.67 1st
+a4                 11         22         33         66         22
+a5                 66         77         88        231         77 *(1st)
+a6                 54         45         61        160      53.33
+
+6 rows selected.
+
+SQL> update student set grd='2nd' where avgr>=45 and avgr<60;
+
+1 row updated.
+
+SQL> select regno,sub1,sub2,sub3,total,avgr,grd from student;
+
+REGNO            SUB1       SUB2       SUB3      TOTAL       AVGR GRD
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+a1                 33         44         55        132         44
+a2                 87         88         97        272      90.67 *(1st)
+a3                 65         67         86        218      72.67 1st
+a4                 11         22         33         66         22
+a5                 66         77         88        231         77 *(1st)
+a6                 54         45         61        160      53.33 2nd
+
+6 rows selected.
+
+SQL> update student set grd='3rd' where avgr>=34 and avgr<45;
+
+1 row updated.
+
+SQL> update student set grd='fail' where avgr<34;
+
+1 row updated.
+
+SQL> select regno,sub1,sub2,sub3,total,avgr,grd from student;
+
+REGNO            SUB1       SUB2       SUB3      TOTAL       AVGR GRD
+---------- ---------- ---------- ---------- ---------- ---------- ----------
+a1                 33         44         55        132         44 3rd
+a2                 87         88         97        272      90.67 *(1st)
+a3                 65         67         86        218      72.67 1st
+a4                 11         22         33         66         22 fail
+a5                 66         77         88        231         77 *(1st)
+a6                 54         45         61        160      53.33 2nd
+
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+
+SQL> create table student1(regno,name,sub1,sub2,sub3,total,avgr,grd)
+  2  as select regno,name,sub1,sub2,sub3,total,avgr,grd from student;
+
+Table created.
+
+SQL> desc student1;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+
+SQL> select * from student1;
+
+REGNO      NAME                       SUB1       SUB2       SUB3      TOTAL
+---------- -------------------- ---------- ---------- ---------- ----------
+      AVGR GRD
+---------- ----------
+a1         amal                         33         44         55        132
+        44 3rd
+
+a2         patol                        87         88         97        272
+     90.67 *(1st)
+
+a3         wahed islam                  65         67         86        218
+     72.67 1st
+
+
+REGNO      NAME                       SUB1       SUB2       SUB3      TOTAL
+---------- -------------------- ---------- ---------- ---------- ----------
+      AVGR GRD
+---------- ----------
+a4         ahooja                       11         22         33         66
+        22 fail
+
+a5         debu                         66         77         88        231
+        77 *(1st)
+
+a6         china                        54         45         61        160
+     53.33 2nd
+
+
+6 rows selected.
+
+SQL> select regno,name,total,avgr,grd from student;
+
+REGNO      NAME                      TOTAL       AVGR GRD
+---------- -------------------- ---------- ---------- ----------
+a1         amal                        132         44 3rd
+a2         patol                       272      90.67 *(1st)
+a3         wahed islam                 218      72.67 1st
+a4         ahooja                       66         22 fail
+a5         debu                        231         77 *(1st)
+a6         china                       160      53.33 2nd
+
+6 rows selected.
+
+SQL> select regno,name,total,avgr,grd from student1;
+
+REGNO      NAME                      TOTAL       AVGR GRD
+---------- -------------------- ---------- ---------- ----------
+a1         amal                        132         44 3rd
+a2         patol                       272      90.67 *(1st)
+a3         wahed islam                 218      72.67 1st
+a4         ahooja                       66         22 fail
+a5         debu                        231         77 *(1st)
+a6         china                       160      53.33 2nd
+
+6 rows selected.
+
+SQL> create table star(regno,name,sub1,sub2,sub3,total,avgr,grd)
+  2  as select regno,name,sub1,sub2,sub3,total,avgr,grd from
+  3  student where avgr>=75;
+
+Table created.
+
+SQL> select regno,name,total,avgr,grd from star;
+
+REGNO      NAME                      TOTAL       AVGR GRD
+---------- -------------------- ---------- ---------- ----------
+a2         patol                       272      90.67 *(1st)
+a5         debu                        231         77 *(1st)
+
+SQL> create table tabu(regno,name,total,avgr,grd)
+  2  as select regno,name,total,avgr,grd from student;
+
+Table created.
+
+SQL> select * from tabu;
+
+REGNO      NAME                      TOTAL       AVGR GRD
+---------- -------------------- ---------- ---------- ----------
+a1         amal                        132         44 3rd
+a2         patol                       272      90.67 *(1st)
+a3         wahed islam                 218      72.67 1st
+a4         ahooja                       66         22 fail
+a5         debu                        231         77 *(1st)
+a6         china                       160      53.33 2nd
+
+6 rows selected.
+
+
+SQL> desc student;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+
+SQL> create table temp(regno,name,sub1,sub2,sub3,total,avgr,grd)
+  2  as select * from student;
+
+Table created.
+
+SQL> desc temp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+
+SQL> drop table student;
+
+Table dropped.
+
+SQL> desc student;
+ERROR:
+ORA-04043: object student does not exist
+
+
+SQL> create table student(regno,name,sub1,sub2,sub3,total,avgr,grd)
+  2  as select * from temp;
+
+Table created.
+
+SQL> desc temp;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              CHAR(10)
+ NAME                                               CHAR(20)
+ SUB1                                               NUMBER(3)
+ SUB2                                               NUMBER(3)
+ SUB3                                               NUMBER(3)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+
+SQL> drop table temp;
+
+Table dropped.
+
+SQL> desc tabu;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              CHAR(10)
+ NAME                                               CHAR(20)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+
+SQL> alter table tabu add remarks char(20);
+
+Table altered.
+
+SQL> desc tabu;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              CHAR(10)
+ NAME                                               CHAR(20)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+ REMARKS                                            CHAR(20)
+
+SQL> select * from tabu;
+
+REGNO      NAME                      TOTAL       AVGR GRD
+---------- -------------------- ---------- ---------- ----------
+REMARKS
+--------------------
+a1         amal                        132         44 3rd
+
+
+a2         patol                       272      90.67 *(1st)
+
+
+a3         wahed islam                 218      72.67 1st
+
+
+
+REGNO      NAME                      TOTAL       AVGR GRD
+---------- -------------------- ---------- ---------- ----------
+REMARKS
+--------------------
+a4         ahooja                       66         22 fail
+
+
+a5         debu                        231         77 *(1st)
+
+
+a6         china                       160      53.33 2nd
+
+
+
+6 rows selected.
+
+SQL> alter table tabu modify remarks char(30);
+
+Table altered.
+
+SQL> desc tabu;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              CHAR(10)
+ NAME                                               CHAR(20)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+ REMARKS                                            CHAR(30)
+
+SQL> alter table tabu modify remarks char(10);
+
+Table altered.
+
+SQL> desc tabu;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              CHAR(10)
+ NAME                                               CHAR(20)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+ REMARKS                                            CHAR(10)
+
+SQL> update tabu set remarks='superb' where avgr>=75;
+
+2 rows updated.
+
+SQL> alter table tabu modify remarks char(10);
+
+Table altered.
+
+SQL> alter table tabu modify remarks char(5);
+alter table tabu modify remarks char(5)
+                        *
+ERROR at line 1:
+ORA-01441: cannot decrease column length because some value is too big
+
+
+SQL> alter table tabu modify remarks char(15);
+
+Table altered.
+
+SQL> update tabu set remarks='99';
+
+6 rows updated.
+
+SQL> select * from tabu;
+
+REGNO      NAME                      TOTAL       AVGR GRD        REMARKS
+---------- -------------------- ---------- ---------- ---------- ---------------
+a1         amal                        132         44 3rd        99
+a2         patol                       272      90.67 *(1st)     99
+a3         wahed islam                 218      72.67 1st        99
+a4         ahooja                       66         22 fail       99
+a5         debu                        231         77 *(1st)     99
+a6         china                       160      53.33 2nd        99
+
+6 rows selected.
+
+SQL> alter table tabu modify remarks number(8);
+alter table tabu modify remarks number(8)
+                        *
+ERROR at line 1:
+ORA-01439: column to be modified must be empty to change datatype
+
+
+SQL> update tabu set remarks='';
+
+6 rows updated.
+
+SQL> select * from tabu;
+
+REGNO      NAME                      TOTAL       AVGR GRD        REMARKS
+---------- -------------------- ---------- ---------- ---------- ---------------
+a1         amal                        132         44 3rd
+a2         patol                       272      90.67 *(1st)
+a3         wahed islam                 218      72.67 1st
+a4         ahooja                       66         22 fail
+a5         debu                        231         77 *(1st)
+a6         china                       160      53.33 2nd
+
+6 rows selected.
+
+SQL> alter table tabu modify remarks number(5);
+
+Table altered.
+
+SQL> desc tabu;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                              CHAR(10)
+ NAME                                               CHAR(20)
+ TOTAL                                              NUMBER(3)
+ AVGR                                               NUMBER(6,2)
+ GRD                                                CHAR(10)
+ REMARKS                                            NUMBER(5)
+
+SQL>SQL>6 rows selected.
+
+SQL>         wahed islam                 218
+a4         ahooja                       66
+a5         debu                        231
+a6         china                       160
+
+6 rows selected.
+
+SQL> select regno,name,sub1+sub2+sub3 "Total" ,(sub1+sub2+sub3)/3 "avg" from student;
+
+REGNO      NAME                      Total        avg
+---------- -------------------- ---------- ----------
+a1         amal                        132         44
+a2         patol                       272 90.6666667
+a3         wahed islam                 218 72.6666667
+a4         ahooja                       66         22
+a5         debu                        231         77
+a6         china                       160 53.3333333
+
+6 rows selected.
+
+SQL>
